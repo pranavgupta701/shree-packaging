@@ -20,6 +20,10 @@
     } else if (p.endsWith('.html')) {
       window.history.replaceState(null, '', p.replace(/\.html$/, '') + window.location.search + window.location.hash);
     }
+    document.addEventListener('DOMContentLoaded', function() {
+      var y = new Date().getFullYear();
+      document.querySelectorAll('.current-year').forEach(function(el) { el.textContent = y; });
+    });
   })();
 </script>
 <style>
@@ -248,7 +252,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2024 Shree Packaging. All rights reserved.</span>
+      <span>© <span class="current-year"><script>document.write(new Date().getFullYear())</script></span> Shree Packaging. All rights reserved.</span>
       <span>ISO 9001:2015 Certified Manufacturing Facility · Palwal, Haryana</span>
     </div>
   </div>
