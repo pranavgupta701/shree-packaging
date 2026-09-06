@@ -13,11 +13,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=1.1">
 <script>
-  if (location.pathname.endsWith('.html')) {
-    var cleanPath = location.pathname.replace(/\.html$/, '');
-    if (cleanPath.endsWith('/index')) cleanPath = cleanPath.substring(0, cleanPath.length - 5);
-    window.history.replaceState(null, '', (cleanPath || '/') + location.search + location.hash);
-  }
+  (function() {
+    var p = window.location.pathname;
+    if (p.endsWith('/index.html') || p === '/index' || p.endsWith('/index')) {
+      window.history.replaceState(null, '', (p.replace(/\/?index(\.html)?$/, '') || '/') + window.location.search + window.location.hash);
+    } else if (p.endsWith('.html')) {
+      window.history.replaceState(null, '', p.replace(/\.html$/, '') + window.location.search + window.location.hash);
+    }
+  })();
 </script>
 </head>
 <body>
