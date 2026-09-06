@@ -12,21 +12,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=1.1">
+<script>
+  if (location.pathname.endsWith('.html')) {
+    var cleanPath = location.pathname.replace(/\.html$/, '');
+    if (cleanPath.endsWith('/index')) cleanPath = cleanPath.substring(0, cleanPath.length - 5);
+    window.history.replaceState(null, '', (cleanPath || '/') + location.search + location.hash);
+  }
+</script>
 </head>
 <body>
 
 <header class="navbar" id="navbar">
   <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo">
+    <a href="/" class="navbar__logo">
       <img src="assets/images/logo_white.png" alt="Shree Packaging Logo">
     </a>
     <nav class="navbar__nav" id="nav">
-      <a href="index.html" class="">Home</a>
-      <a href="about.html" class="">About</a>
-      <a href="products.html" class="active">Products</a>
-      <a href="why-us.html" class="">Why Us</a>
+      <a href="/" class="">Home</a>
+      <a href="about" class="">About</a>
+      <a href="products" class="active">Products</a>
+      <a href="why-us" class="">Why Us</a>
       <a href="assets/docs/shree_packaging_brochure.pdf" target="_blank" rel="noopener noreferrer" class="navbar__brochure-btn" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;padding:8px 14px;border-radius:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Brochure</a>
-      <a href="contact.html" class="navbar__cta ">Get a Quote</a>
+      <a href="contact" class="navbar__cta ">Get a Quote</a>
     </nav>
     <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
@@ -36,7 +43,7 @@
 
 
 <section class="page-hero">
-  <div class="page-hero__breadcrumb"><a href="index.html">Home</a> › Products</div>
+  <div class="page-hero__breadcrumb"><a href="/">Home</a> › Products</div>
   <h1 class="page-hero__title">Our <span style="color:var(--gold-light)">Product Range</span></h1>
   <p class="page-hero__subtitle">Engineered corrugated packaging manufactured to your exact size, flute, GSM, and printing requirements.</p>
 </section>
@@ -64,7 +71,7 @@
             <span class="spec-tag">Micro Flute (E)</span>
             <span class="spec-tag">High Burst Strength</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Master Cartons →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Master Cartons →</a>
         </div>
       </div>
 
@@ -84,7 +91,7 @@
             <span class="spec-tag">Scannable Barcodes &amp; QR</span>
             <span class="spec-tag">Custom Branding</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Printed Boxes →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Printed Boxes →</a>
         </div>
       </div>
 
@@ -104,7 +111,7 @@
             <span class="spec-tag">100% Recyclable</span>
             <span class="spec-tag">Export Certified</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Honeycomb Cartons →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Honeycomb Cartons →</a>
         </div>
       </div>
 
@@ -124,7 +131,7 @@
             <span class="spec-tag">Impact Absorption</span>
             <span class="spec-tag">Custom Widths &amp; Lengths</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Corrugated Sheets →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Corrugated Sheets →</a>
         </div>
       </div>
 
@@ -144,7 +151,7 @@
             <span class="spec-tag">FMCG &amp; Pharma Grade</span>
             <span class="spec-tag">Stackable</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Inner Cartons →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Inner Cartons →</a>
         </div>
       </div>
 
@@ -164,7 +171,7 @@
             <span class="spec-tag">Crisp Creasing &amp; Folding</span>
             <span class="spec-tag">Food &amp; Pharma Grade</span>
           </div>
-          <a href="contact.html" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Duplex Boxes →</a>
+          <a href="contact" class="btn btn-outline" style="margin-top:auto;padding:10px 22px;font-size:0.88rem;align-self:flex-start">Order Duplex Boxes →</a>
         </div>
       </div>
 
@@ -178,7 +185,7 @@
     <h2 class="cta-banner__title">Need a Custom Size or Grade?</h2>
     <p class="cta-banner__desc">We manufacture custom samples and prototypes based on your product weight and dimensions.</p>
     <div class="cta-banner__actions">
-      <a href="contact.html" class="btn btn-primary">Contact Our Engineers →</a>
+      <a href="contact" class="btn btn-primary">Contact Our Engineers →</a>
     </div>
   </div>
 </section>
@@ -201,23 +208,23 @@
       <div>
         <h4 class="footer__heading">Quick Links</h4>
         <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="why-us.html">Why Choose Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="about">About Us</a></li>
+          <li><a href="products">Our Products</a></li>
+          <li><a href="why-us">Why Choose Us</a></li>
+          <li><a href="contact">Contact Us</a></li>
           <li><a href="assets/docs/shree_packaging_brochure.pdf" target="_blank" rel="noopener noreferrer">Download Brochure (PDF)</a></li>
         </ul>
       </div>
       <div>
         <h4 class="footer__heading">Products</h4>
         <ul class="footer__links">
-          <li><a href="products.html#master">Master Cartons</a></li>
-          <li><a href="products.html#printed">Printed Cartons</a></li>
-          <li><a href="products.html#honeycomb">Honeycomb Cartons</a></li>
-          <li><a href="products.html#sheets">Corrugated Sheets</a></li>
-          <li><a href="products.html#inner">Inner Cartons</a></li>
-          <li><a href="products.html#duplex">Duplex Boxes</a></li>
+          <li><a href="products#master">Master Cartons</a></li>
+          <li><a href="products#printed">Printed Cartons</a></li>
+          <li><a href="products#honeycomb">Honeycomb Cartons</a></li>
+          <li><a href="products#sheets">Corrugated Sheets</a></li>
+          <li><a href="products#inner">Inner Cartons</a></li>
+          <li><a href="products#duplex">Duplex Boxes</a></li>
         </ul>
       </div>
       <div>
