@@ -10,8 +10,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=1.2">
+<link rel="stylesheet" href="assets/css/style.css?v=1.3">
 <script>
   (function() {
     var p = window.location.pathname;
@@ -24,6 +25,19 @@
       var y = new Date().getFullYear();
       document.querySelectorAll('.current-year').forEach(function(el) { el.textContent = y; });
     });
+    // Instant hover/touch prefetch so page loads in 0ms on click
+    function prefetchLink(e) {
+      var a = e.target.closest('a');
+      if (a && a.href && a.origin === location.origin && !a.dataset.prefetched && !a.href.endsWith('.pdf')) {
+        a.dataset.prefetched = 'true';
+        var link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = a.href;
+        document.head.appendChild(link);
+      }
+    }
+    document.addEventListener('mouseover', prefetchLink, { passive: true });
+    document.addEventListener('touchstart', prefetchLink, { passive: true });
   })();
 </script>
 </head>
@@ -248,7 +262,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© <span class="current-year"><script>document.write(new Date().getFullYear())</script></span> Shree Packaging. All rights reserved.</span>
+      <span>© <span class="current-year">2026</span> Shree Packaging. All rights reserved.</span>
       <span>ISO 9001:2015 Certified Manufacturing Facility · Palwal, Haryana</span>
     </div>
   </div>
@@ -295,14 +309,33 @@ if (hamburger && nav) {
   });
 }
 
+// Immediately reveal elements in initial viewport so there is no lag or blank pause
+const aosElements = document.querySelectorAll('[data-aos]');
+const vh = window.innerHeight || document.documentElement.clientHeight;
+aosElements.forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < vh && r.bottom > 0) {
+    el.classList.add('aos-animate');
+  }
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('aos-animate'), entry.target.dataset.delay || 0);
+      const d = entry.target.dataset.delay ? parseInt(entry.target.dataset.delay, 10) : 0;
+      if (d > 0) {
+        setTimeout(() => entry.target.classList.add('aos-animate'), Math.min(d, 120));
+      } else {
+        entry.target.classList.add('aos-animate');
+      }
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
-document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+}, { threshold: 0.05, rootMargin: '40px 0px' });
+
+aosElements.forEach(el => {
+  if (!el.classList.contains('aos-animate')) observer.observe(el);
+});
 
 function animateCounter(el) {
   const target = parseInt(el.dataset.target);
