@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Packaging Products | Shree Packaging – Side-by-Side Specifications</title>
+<meta name="description" content="Compare Shree Packaging corrugated box products side by side: Master Cartons, Printed Cartons, Honeycomb, Sheets, Inner Cartons, and Duplex Boxes across burst strength, GSM, and load capacity.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=3.4">
+<script>
+  (function() {
+    var p = window.location.pathname;
+    if (p.endsWith('/index.html') || p === '/index' || p.endsWith('/index')) {
+      window.history.replaceState(null, '', (p.replace(/\/?index(\.html)?$/, '') || '/') + window.location.search + window.location.hash);
+    } else if (p.endsWith('.html')) {
+      window.history.replaceState(null, '', p.replace(/\.html$/, '') + window.location.search + window.location.hash);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var y = new Date().getFullYear();
+      document.querySelectorAll('.current-year').forEach(function(el) { el.textContent = y; });
+    });
+    function prefetchLink(e) {
+      var a = e.target.closest('a');
+      if (a && a.href && a.origin === location.origin && !a.dataset.prefetched && !a.href.endsWith('.pdf')) {
+        a.dataset.prefetched = 'true';
+        var link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = a.href;
+        document.head.appendChild(link);
+      }
+    }
+    document.addEventListener('mouseover', prefetchLink, { passive: true });
+    document.addEventListener('touchstart', prefetchLink, { passive: true });
+  })();
+</script>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">
+      <img src="assets/images/logo_white.png" alt="Shree Packaging Logo">
+    </a>
+    <nav class="navbar__nav" id="nav">
+      <a href="/" class="">Home</a>
+      <a href="about" class="">About</a>
+      <a href="products" class="active">Products</a>
+      <a href="why-us" class="">Why Us</a>
+      <a href="/brochure.pdf" target="_blank" rel="noopener noreferrer" class="navbar__brochure-btn" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;padding:8px 14px;border-radius:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Brochure</a>
+      <a href="contact" class="navbar__cta ">Get a Quote</a>
+    </nav>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="apple-compare-hero">
+  <div class="container text-center">
+    <div class="page-hero__breadcrumb"><a href="/">Home</a> › <a href="products">Products</a> › Compare Products</div>
+    <h1 class="apple-compare-title">Compare Packaging <span>Products</span></h1>
+    <p class="apple-compare-subtitle" id="heroSubtitle">Select two or three packaging products side by side to evaluate structural fluting, burst strength, load endurance, and print finishes.</p>
+    <div class="apple-compare-links">
+      <a href="products" class="apple-link">Explore Full Product Catalog ›</a>
+      <span class="apple-link-sep">•</span>
+      <a href="contact" class="apple-link">Need Custom Specs? Chat with an Engineer ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2/3 COLUMN APPLE-STYLE COMPARISON MATRIX -->
+<section class="section" style="padding-top: 20px; padding-bottom: 96px;">
+  <div class="container">
+
+    <!-- TOP TOOLBAR WITH MODE SWITCHER AT TOP RIGHT -->
+    <div class="apple-compare-toolbar" id="compareToolbar">
+      <div class="compare-toggle-wrapper">
+        <span class="compare-toggle-title">Comparison View:</span>
+        <div class="compare-toggle-group" role="tablist" aria-label="Comparison Count">
+          <button type="button" class="compare-toggle-btn" id="btnCompare2" onclick="setCompareCount(2)" role="tab" aria-selected="false" title="Compare 2 Products">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="18" rx="2"></rect>
+              <rect x="14" y="3" width="7" height="18" rx="2"></rect>
+            </svg>
+            <span>Compare Two</span>
+          </button>
+          <button type="button" class="compare-toggle-btn active" id="btnCompare3" onclick="setCompareCount(3)" role="tab" aria-selected="true" title="Compare 3 Products">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="5" height="18" rx="1.5"></rect>
+              <rect x="9.5" y="3" width="5" height="18" rx="1.5"></rect>
+              <rect x="17" y="3" width="5" height="18" rx="1.5"></rect>
+            </svg>
+            <span>Compare Three</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="apple-matrix-wrapper" id="matrixWrapper">
+      
+      <!-- STICKY HEADER WITH DROPDOWNS -->
+      <div class="apple-matrix-head">
+        <div class="apple-matrix-col" id="colHead0">
+          <div class="apple-select-wrap">
+            <select class="apple-select" id="selectModel0" onchange="onModelChange(0)">
+              <!-- Options populated by JS -->
+            </select>
+          </div>
+          <div class="apple-col-visual">
+            <img id="imgModel0" src="" alt="" class="apple-model-img">
+            <div id="tagModel0" class="apple-model-tag"></div>
+            <h3 id="titleModel0" class="apple-model-name"></h3>
+            <p id="descModel0" class="apple-model-desc"></p>
+            <div class="apple-col-actions">
+              <a id="ctaQuote0" href="contact" class="btn btn-primary btn-sm" style="width:100%;justify-content:center">Get Quote →</a>
+              <a id="ctaSample0" href="contact?intent=sample" class="btn btn-outline btn-sm" style="width:100%;justify-content:center">Order Sample</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="apple-matrix-col" id="colHead1">
+          <div class="apple-select-wrap">
+            <select class="apple-select" id="selectModel1" onchange="onModelChange(1)">
+              <!-- Options populated by JS -->
+            </select>
+          </div>
+          <div class="apple-col-visual">
+            <img id="imgModel1" src="" alt="" class="apple-model-img">
+            <div id="tagModel1" class="apple-model-tag"></div>
+            <h3 id="titleModel1" class="apple-model-name"></h3>
+            <p id="descModel1" class="apple-model-desc"></p>
+            <div class="apple-col-actions">
+              <a id="ctaQuote1" href="contact" class="btn btn-primary btn-sm" style="width:100%;justify-content:center">Get Quote →</a>
+              <a id="ctaSample1" href="contact?intent=sample" class="btn btn-outline btn-sm" style="width:100%;justify-content:center">Order Sample</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="apple-matrix-col" id="colHead2">
+          <div class="apple-select-wrap">
+            <select class="apple-select" id="selectModel2" onchange="onModelChange(2)">
+              <!-- Options populated by JS -->
+            </select>
+          </div>
+          <div class="apple-col-visual">
+            <img id="imgModel2" src="" alt="" class="apple-model-img">
+            <div id="tagModel2" class="apple-model-tag"></div>
+            <h3 id="titleModel2" class="apple-model-name"></h3>
+            <p id="descModel2" class="apple-model-desc"></p>
+            <div class="apple-col-actions">
+              <a id="ctaQuote2" href="contact" class="btn btn-primary btn-sm" style="width:100%;justify-content:center">Get Quote →</a>
+              <a id="ctaSample2" href="contact?intent=sample" class="btn btn-outline btn-sm" style="width:100%;justify-content:center">Order Sample</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIFICATION ROWS ORGANIZED BY CATEGORY -->
+      <div id="appleSpecsContainer" class="apple-specs-container">
+        <!-- Dynamically rendered by JS -->
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <h2 class="cta-banner__title">Need a Custom Size or Grade?</h2>
+    <p class="cta-banner__desc">We manufacture custom samples and prototypes based on your product weight and dimensions.</p>
+    <div class="cta-banner__actions">
+      <a href="contact" class="btn btn-primary">Contact Our Engineers →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL LOGISTICS CORRIDOR -->
+<section class="logistics-corridor">
+  <div class="container">
+    <div class="logistics-corridor__inner">
+      <div>
+        <h3 class="logistics-corridor__title">Strategic Highway Location &amp; <span>JIT Dispatch</span></h3>
+        <p class="logistics-corridor__desc">Direct access to NH-19 (Delhi-Mathura Highway) and the KMP Expressway from our Palwal manufacturing plant guarantees rapid turnaround times for time-critical supply chains.</p>
+      </div>
+      <div class="logistics-hubs">
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            &lt; 3 Hours
+          </div>
+          <div class="logistics-hub__region">Delhi NCR &amp; Industrial Belts</div>
+          <div class="logistics-hub__note">Faridabad, Gurugram, Ballabgarh</div>
+        </div>
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            &lt; 24 Hours
+          </div>
+          <div class="logistics-hub__region">North India Manufacturing Hubs</div>
+          <div class="logistics-hub__note">Haryana, UP, Rajasthan, Punjab</div>
+        </div>
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            Scheduled
+          </div>
+          <div class="logistics-hub__region">Pan-India Freight Logistics</div>
+          <div class="logistics-hub__note">FTL &amp; Direct Factory Dispatches</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img src="assets/images/logo_white.png" alt="Shree Packaging Logo" class="footer__logo">
+        <p class="footer__desc">Shree Packaging (Unit of Vansh Traders) is an ISO 9001:2015 certified manufacturer of high-performance corrugated packaging boxes, serving leading brands across Delhi NCR and North India.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Quick Links</h4>
+        <div class="footer__links">
+          <a href="/">Home</a>
+          <a href="about">About Us</a>
+          <a href="products">Products</a>
+          <a href="compare">Compare Products</a>
+          <a href="why-us">Why Choose Us</a>
+          <a href="/brochure.pdf" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+          <a href="contact">Contact Us</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__heading">Products</h4>
+        <div class="footer__links">
+          <a href="products#master">Master Cartons (3/5/7 PLY)</a>
+          <a href="products#printed">Printed Master Cartons</a>
+          <a href="products#honeycomb">Honeycomb Cartons</a>
+          <a href="products#sheets">Corrugated Sheets &amp; Rolls</a>
+          <a href="products#inner">Inner Cartons</a>
+          <a href="products#duplex">Duplex Boxes</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contact</h4>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+          <span><strong>Vansh Traders</strong><br>Plot no. 7//22/2, Behind Indian Oil Petrol Pump, Aghwanpur, Palwal – 121102, Haryana</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+          <div>
+            <span class="footer__phone-line"><a href="tel:8930049050" style="color:inherit;text-decoration:none">+91 89300 49050</a> <span class="footer__phone-name">(Lakshay&nbsp;Gupta)</span></span>
+            <span class="footer__phone-line"><a href="tel:9812039971" style="color:inherit;text-decoration:none">+91 98120 39971</a> <span class="footer__phone-name">(Sachin&nbsp;Singhal)</span></span>
+          </div>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+          <span><a href="mailto:shreepackaging.pwl@gmail.com" style="color:inherit;text-decoration:none">shreepackaging.pwl@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span class="current-year">2026</span> Shree Packaging. All rights reserved.</span>
+      <span>ISO 9001:2015 Certified Manufacturing Facility · Palwal, Haryana</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918930049050?text=Hello%20Shree%20Packaging%2C%20I%20am%20comparing%20your%20packaging%20products%20and%20need%20assistance." 
+   target="_blank" 
+   class="floating-wa"
+   title="Chat on WhatsApp"
+   aria-label="Chat on WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+  style="display:none;position:fixed;bottom:100px;right:28px;z-index:9998;width:44px;height:44px;border-radius:50%;background:var(--navy);border:2px solid var(--gold-light);color:var(--gold-light);cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow);"
+  title="Back to top">↑</button>
+
+<script>
+// Complete Technical Data Dictionary for 6 Product Categories
+const productsData = {
+  master: {
+    id: 'master',
+    name: 'Master Cartons',
+    tag: 'Heavy-Duty Industrial Shipping',
+    img: 'assets/images/product_master.png',
+    desc: 'Heavy-duty corrugated shippers for multi-tier warehouse palletizing & freight.',
+    metrics: {
+      'Structure & Plies': '3 PLY (Single), 5 PLY (Double), 7 PLY (Triple Wall)',
+      'Fluting Profiles': 'B (3mm), C (4mm), E (1.5mm), BC Multi-Wall',
+      'Paper GSM Range': '120 GSM to 350 GSM Virgin / Semi-Kraft',
+      'Burst Factor (BF)': '16 BF, 18 BF, 22 BF, 28 BF, up to 35+ BF',
+      'Bursting Strength': '8.0 to 22.5 kg/cm² (Lab Certified)',
+      'Max Static Stacking': 'Up to 500+ kg static warehouse load',
+      'Moisture Defense': 'COA < 9% with Cobb 60 water absorption sizing',
+      'Printing & Branding': '1–2 Colour Flexographic Marking & Barcodes',
+      'Jointing & Closure': 'High-tensile zinc wire stitch or cold-glue flap',
+      'Primary Application': 'Consolidated bulk shipping, exports & warehousing',
+      'Ideal Industries': 'Automotive, Heavy Engineering, White Goods, Export'
+    }
+  },
+  printed: {
+    id: 'printed',
+    name: 'Printed Master Cartons',
+    tag: 'High-Impact Branded Packaging',
+    img: 'assets/images/product_printed.png',
+    desc: 'Branded cartons featuring high-definition multi-colour graphic printing.',
+    metrics: {
+      'Structure & Plies': '3 PLY & 5 PLY (Bleached White or Kraft Top)',
+      'Fluting Profiles': 'Fine B-Flute (3mm), E-Flute (1.5mm), BC Double',
+      'Paper GSM Range': '140 GSM to 300 GSM Smooth Calendered Kraft',
+      'Burst Factor (BF)': '18 BF to 32+ BF',
+      'Bursting Strength': '9.0 to 18.0 kg/cm²',
+      'Max Static Stacking': 'Up to 350+ kg stack rating',
+      'Moisture Defense': 'Certified COA < 9% with Cobb 60 water testing',
+      'Printing & Branding': 'Multi-colour Flexo & Offset up to 6 colours, GS1 Barcodes & QR',
+      'Jointing & Closure': 'Precision automated folder-gluer / adhesive bond',
+      'Primary Application': 'Retail logistics, e-commerce brand unboxing',
+      'Ideal Industries': 'FMCG Brands, E-Commerce, Consumer Durables, Apparel'
+    }
+  },
+  honeycomb: {
+    id: 'honeycomb',
+    name: 'Honeycomb Cartons',
+    tag: 'Structural Rigid Core',
+    img: 'assets/images/product_honeycomb.png',
+    desc: 'Continuous hexagonal core panels delivering extreme vertical crush resistance.',
+    metrics: {
+      'Structure & Plies': 'Dual Heavy Kraft Skins + Continuous Hexagonal Core',
+      'Fluting Profiles': '10mm to 50mm Hexagonal Expanded Cell Depths',
+      'Paper GSM Range': '180 GSM to 400 GSM Heavy-Yield Kraft',
+      'Burst Factor (BF)': '24 BF to 40+ BF',
+      'Bursting Strength': 'Exceeds Standard Board (High Puncture Resistance)',
+      'Max Static Stacking': 'Extreme (1,000+ kg Static Compression)',
+      'Moisture Defense': 'Surface Water-Resistant Barrier Coatings Available',
+      'Printing & Branding': 'Flexographic Stenciling & Directional Symbols',
+      'Jointing & Closure': 'V-Grooved 90° mitre joint with heavy corner caps',
+      'Primary Application': 'Wooden crate replacement for high-value heavy freight',
+      'Ideal Industries': 'Machinery Export, Glass, Solar PV Modules, Aerospace'
+    }
+  },
+  sheets: {
+    id: 'sheets',
+    name: 'Corrugated Sheets & Rolls',
+    tag: 'Surface & Transit Protection',
+    img: 'assets/images/product_sheets.png',
+    desc: 'Single-face rolls & flat sheets for pallet interleaving & void cushioning.',
+    metrics: {
+      'Structure & Plies': '2 PLY Single-Face Rolls or 3/5 PLY Flat Sheets',
+      'Fluting Profiles': 'B-Flute (Shock Cushioning) or E-Flute (Wrapping)',
+      'Paper GSM Range': '80 GSM to 250 GSM',
+      'Burst Factor (BF)': '14 BF to 24 BF',
+      'Bursting Strength': 'Elastic shock attenuation & tear resistance',
+      'Max Static Stacking': 'Pallet Interlayer Weight Distribution Pad',
+      'Moisture Defense': 'Standard Industrial Dry Pulp Grade',
+      'Printing & Branding': 'Natural unprinted Kraft or continuous batch code',
+      'Jointing & Closure': 'Continuous rolls up to 1800mm or rotary cut pads',
+      'Primary Application': 'Pallet layering, scratch prevention, coil wrapping',
+      'Ideal Industries': 'Steel Coils, Furniture, Ceramic Tiles, Warehousing'
+    }
+  },
+  inner: {
+    id: 'inner',
+    name: 'Inner Cartons & Partitions',
+    tag: 'Primary & Unit Packaging',
+    img: 'assets/images/product_inner.png',
+    desc: 'Precision die-cut unit containers & interlocking bottle/jar partition matrices.',
+    metrics: {
+      'Structure & Plies': 'Micro-Flute (E/F Flute) & High-Density Solid Kraft',
+      'Fluting Profiles': 'Micro E-Flute (1.5mm) & F-Flute (1.0mm)',
+      'Paper GSM Range': '120 GSM to 280 GSM',
+      'Burst Factor (BF)': '16 BF to 26 BF',
+      'Bursting Strength': 'Calibrated for unit product separation',
+      'Max Static Stacking': 'Snug internal support preventing box side collapse',
+      'Moisture Defense': 'Pharma & dry food contact compliant dry board',
+      'Printing & Branding': 'High-definition flexo / offset with barcodes',
+      'Jointing & Closure': 'Self-locking tuck flap, crash-lock base, interlocked grid',
+      'Primary Application': 'Snug protection for individual bottles, jars, sensors',
+      'Ideal Industries': 'Pharmaceuticals, Cosmetics, Auto Sensors, Glassware'
+    }
+  },
+  duplex: {
+    id: 'duplex',
+    name: 'Duplex Boxes',
+    tag: 'Retail & Shelf-Ready Presentation',
+    img: 'assets/images/product_duplex.png',
+    desc: 'Coated paperboard packaging delivering crisp photographic retail aesthetics.',
+    metrics: {
+      'Structure & Plies': 'Double Clay Coated Paperboard (White / Grey Back)',
+      'Fluting Profiles': 'Solid Non-Fluted Board (High Caliper Rigidity)',
+      'Paper GSM Range': '230 GSM, 280 GSM, 320 GSM, 380 GSM, 450 GSM',
+      'Burst Factor (BF)': '20 BF to 30+ BF',
+      'Bursting Strength': 'Rigid score-line folding memory & corner pop-up',
+      'Max Static Stacking': 'Lightweight shelf retail display (< 10 kg unit)',
+      'Moisture Defense': 'Clay surface coating resists atmospheric humidity',
+      'Printing & Branding': '300+ DPI Offset Litho + Spot UV + Hot Gold Foil',
+      'Jointing & Closure': 'High-speed automated side-seam & crash-lock gluing',
+      'Primary Application': 'Primary consumer packaging & OTC retail display',
+      'Ideal Industries': 'Pharma Monocartons, Footwear, Confectionery, Beauty Care'
+    }
+  }
+};
+
+// Specification Categories & Metrics
+const specSections = [
+  {
+    category: 'Structural Anatomy & Construction',
+    keys: [
+      'Structure & Plies',
+      'Fluting Profiles',
+      'Jointing & Closure'
+    ]
+  },
+  {
+    category: 'Strength & Laboratory Testing',
+    keys: [
+      'Paper GSM Range',
+      'Burst Factor (BF)',
+      'Bursting Strength',
+      'Max Static Stacking',
+      'Moisture Defense'
+    ]
+  },
+  {
+    category: 'Branding, Printing & Finishes',
+    keys: [
+      'Printing & Branding'
+    ]
+  },
+  {
+    category: 'Application Scope & Industry Fit',
+    keys: [
+      'Primary Application',
+      'Ideal Industries'
+    ]
+  }
+];
+
+// Current selected models for columns 0, 1, 2
+let selectedModels = ['master', 'printed', 'honeycomb'];
+let compareCount = 3;
+
+// Parse URL query params if present (e.g. ?count=2&p1=master&p2=printed&p3=honeycomb)
+function readUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const countParam = parseInt(params.get('count') || params.get('mode'), 10);
+  if (countParam === 2 || countParam === 3) {
+    compareCount = countParam;
+  }
+  const m0 = params.get('p1') || params.get('m1') || params.get('col0');
+  const m1 = params.get('p2') || params.get('m2') || params.get('col1');
+  const m2 = params.get('p3') || params.get('m3') || params.get('col2');
+  if (m0 && productsData[m0]) selectedModels[0] = m0;
+  if (m1 && productsData[m1]) selectedModels[1] = m1;
+  if (m2 && productsData[m2]) selectedModels[2] = m2;
+
+  ensureUniqueSelectedModels();
+}
+
+// Ensures that active comparison slots contain strictly unique products
+function ensureUniqueSelectedModels() {
+  const allKeys = Object.keys(productsData);
+  const used = new Set();
+  
+  for (let i = 0; i < compareCount; i++) {
+    let current = selectedModels[i];
+    if (!current || !productsData[current] || used.has(current)) {
+      // Find an unused product key
+      const replacement = allKeys.find(k => !used.has(k) && !selectedModels.slice(0, compareCount).includes(k))
+                       || allKeys.find(k => !used.has(k));
+      if (replacement) {
+        selectedModels[i] = replacement;
+      }
+    }
+    used.add(selectedModels[i]);
+  }
+}
+
+// Toggle between 2 and 3 product comparison
+function setCompareCount(count) {
+  if (count !== 2 && count !== 3) count = 3;
+  compareCount = count;
+
+  // Toggle button active states
+  const btn2 = document.getElementById('btnCompare2');
+  const btn3 = document.getElementById('btnCompare3');
+  if (btn2 && btn3) {
+    btn2.classList.toggle('active', count === 2);
+    btn2.setAttribute('aria-selected', count === 2 ? 'true' : 'false');
+    btn3.classList.toggle('active', count === 3);
+    btn3.setAttribute('aria-selected', count === 3 ? 'true' : 'false');
+  }
+
+  // Update wrapper & toolbar class for 2-column layout
+  const wrapper = document.getElementById('matrixWrapper');
+  if (wrapper) {
+    wrapper.classList.toggle('cols-2', count === 2);
+  }
+  const toolbar = document.getElementById('compareToolbar');
+  if (toolbar) {
+    toolbar.classList.toggle('cols-2', count === 2);
+  }
+
+  ensureUniqueSelectedModels();
+  populateDropdowns();
+  renderMatrix();
+  updateUrl();
+}
+
+// Populate select dropdowns with duplicate prevention (disabled state)
+function populateDropdowns() {
+  for (let i = 0; i < 3; i++) {
+    const sel = document.getElementById(`selectModel${i}`);
+    if (!sel) continue;
+    sel.innerHTML = '';
+
+    // Collect products selected in other active columns
+    const usedElsewhere = new Set();
+    for (let j = 0; j < compareCount; j++) {
+      if (j !== i) {
+        usedElsewhere.add(selectedModels[j]);
+      }
+    }
+
+    Object.values(productsData).forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      
+      const isSelectedHere = (p.id === selectedModels[i]);
+      const isUsedInAnotherCol = usedElsewhere.has(p.id);
+
+      if (isSelectedHere) {
+        opt.selected = true;
+        opt.textContent = p.name;
+      } else if (isUsedInAnotherCol) {
+        // Product cannot be selected again in this comparison
+        opt.disabled = true;
+        opt.textContent = `${p.name} (Already in comparison)`;
+      } else {
+        opt.textContent = p.name;
+      }
+      sel.appendChild(opt);
+    });
+  }
+}
+
+// Handle change on any dropdown
+function onModelChange(colIndex) {
+  const sel = document.getElementById(`selectModel${colIndex}`);
+  const newSelected = sel.value;
+
+  // Collision prevention: if newSelected is somehow already active in another column, swap
+  for (let j = 0; j < compareCount; j++) {
+    if (j !== colIndex && selectedModels[j] === newSelected) {
+      selectedModels[j] = selectedModels[colIndex];
+      break;
+    }
+  }
+  selectedModels[colIndex] = newSelected;
+
+  ensureUniqueSelectedModels();
+  populateDropdowns();
+  renderMatrix();
+  updateUrl();
+}
+
+// Update URL parameters
+function updateUrl() {
+  let newUrl = `${window.location.pathname}?count=${compareCount}&p1=${selectedModels[0]}&p2=${selectedModels[1]}`;
+  if (compareCount === 3) {
+    newUrl += `&p3=${selectedModels[2]}`;
+  }
+  window.history.replaceState(null, '', newUrl);
+}
+
+// Render comparison matrix
+function renderMatrix() {
+  // 1. Update Column Headers
+  for (let i = 0; i < compareCount; i++) {
+    const p = productsData[selectedModels[i]];
+    if (!p) continue;
+    
+    document.getElementById(`imgModel${i}`).src = p.img;
+    document.getElementById(`imgModel${i}`).alt = p.name;
+    document.getElementById(`tagModel${i}`).textContent = p.tag;
+    document.getElementById(`titleModel${i}`).textContent = p.name;
+    document.getElementById(`descModel${i}`).textContent = p.desc;
+    
+    const quoteBtn = document.getElementById(`ctaQuote${i}`);
+    quoteBtn.href = `contact?product=${encodeURIComponent(p.name)}`;
+    quoteBtn.textContent = `Get Quote →`;
+
+    const sampleBtn = document.getElementById(`ctaSample${i}`);
+    sampleBtn.href = `contact?intent=sample&product=${encodeURIComponent(p.name)}`;
+  }
+
+  // 2. Render Specs Section Rows
+  const container = document.getElementById('appleSpecsContainer');
+  container.innerHTML = '';
+
+  specSections.forEach(section => {
+    // Section Title Row
+    const catHeader = document.createElement('div');
+    catHeader.className = 'apple-section-header';
+    catHeader.innerHTML = `<span class="apple-section-title">${section.category}</span>`;
+    container.appendChild(catHeader);
+
+    // Rows for each metric key
+    section.keys.forEach(key => {
+      const row = document.createElement('div');
+      row.className = 'apple-spec-row';
+
+      let cellsHtml = '';
+      for (let c = 0; c < compareCount; c++) {
+        const p = productsData[selectedModels[c]];
+        const val = p.metrics[key] || '—';
+        cellsHtml += `
+          <div class="apple-spec-cell">
+            <span class="mobile-col-tag">${p.name}</span>
+            ${val}
+          </div>
+        `;
+      }
+
+      row.innerHTML = `
+        <div class="apple-spec-label">${key}</div>
+        <div class="apple-spec-cells">
+          ${cellsHtml}
+        </div>
+      `;
+      container.appendChild(row);
+    });
+  });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  readUrlParams();
+  setCompareCount(compareCount);
+});
+
+// Navbar scroll logic
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  const btt = document.getElementById('backToTop');
+  if (btt) {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    btt.style.alignItems = 'center';
+    btt.style.justifyContent = 'center';
+  }
+});
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+if (hamburger && nav) {
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+}
+</script>
+</body>
+</html>

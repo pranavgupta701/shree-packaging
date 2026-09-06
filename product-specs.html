@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Specifications & Layer Build | Shree Packaging</title>
+<meta name="description" content="In-depth packaging engineering specifications, multi-ply cross-section layer architecture, and factory manufacturing processes for Shree Packaging corrugated products.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=3.8">
+<script>
+  (function() {
+    var p = window.location.pathname;
+    if (p.endsWith('/index.html') || p === '/index' || p.endsWith('/index')) {
+      window.history.replaceState(null, '', (p.replace(/\/?index(\.html)?$/, '') || '/') + window.location.search + window.location.hash);
+    } else if (p.endsWith('.html')) {
+      window.history.replaceState(null, '', p.replace(/\.html$/, '') + window.location.search + window.location.hash);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      var y = new Date().getFullYear();
+      document.querySelectorAll('.current-year').forEach(function(el) { el.textContent = y; });
+    });
+    function prefetchLink(e) {
+      var a = e.target.closest('a');
+      if (a && a.href && a.origin === location.origin && !a.dataset.prefetched && !a.href.endsWith('.pdf')) {
+        a.dataset.prefetched = 'true';
+        var link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = a.href;
+        document.head.appendChild(link);
+      }
+    }
+    document.addEventListener('mouseover', prefetchLink, { passive: true });
+    document.addEventListener('touchstart', prefetchLink, { passive: true });
+  })();
+</script>
+<style id="specsDedicatedStyles">
+  /* Reset and seamless navbar docking */
+  body.specs-page-body {
+    background-color: #F8FAFC !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+  }
+  body.specs-page-body .navbar {
+    position: sticky !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+  }
+  .specs-subnav-bar {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding: 12px 0 !important;
+    position: static !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  .specs-subnav-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+  }
+  .specs-back-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    color: var(--navy) !important;
+    text-decoration: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    background: #F1F5F9 !important;
+    border: 1px solid #CBD5E1 !important;
+    transition: all 0.2s ease !important;
+  }
+  .specs-back-btn:hover {
+    background: var(--navy) !important;
+    color: #FFFFFF !important;
+    border-color: var(--navy) !important;
+  }
+  .specs-model-selector-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .specs-model-label {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: #64748B !important;
+  }
+  .specs-model-select {
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    border: 1.5px solid #CBD5E1 !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    color: var(--navy) !important;
+    background: #FFFFFF !important;
+    outline: none !important;
+    cursor: pointer !important;
+  }
+  .specs-hero-section {
+    padding: 36px 0 40px !important;
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    position: static !important;
+    margin: 0 !important;
+  }
+  .specs-hero-grid {
+    display: grid !important;
+    grid-template-columns: 420px 1fr !important;
+    gap: 48px !important;
+    align-items: start !important;
+  }
+  .specs-visual-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    border-radius: 18px !important;
+    padding: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 4px 24px rgba(13, 27, 42, 0.05) !important;
+  }
+  .specs-img-box {
+    background: #F8FAFC !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #EDF2F7 !important;
+    min-height: 270px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .specs-img-box img {
+    max-width: 100% !important;
+    max-height: 230px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12)) !important;
+  }
+  .specs-card-actions .btn-primary {
+    background: var(--navy) !important;
+    color: #FFFFFF !important;
+    border: 1.5px solid rgba(201, 162, 39, 0.45) !important;
+    box-shadow: 0 4px 16px rgba(13, 27, 42, 0.18) !important;
+  }
+  .specs-card-actions .btn-primary:hover {
+    background: var(--navy-light) !important;
+    color: #FFFFFF !important;
+    border-color: var(--gold-light) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(13, 27, 42, 0.28) !important;
+  }
+  body.specs-page-body .navbar__cta {
+    background: #FFFFFF !important;
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+  }
+  body.specs-page-body .navbar__cta:hover {
+    background: #F1F5F9 !important;
+    color: var(--navy) !important;
+  }
+  .specs-info-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  #specsProductTag {
+    display: inline-flex !important;
+    align-self: flex-start !important;
+    width: fit-content !important;
+    background: rgba(201, 162, 39, 0.12) !important;
+    color: #B38E1B !important;
+    border: 1px solid rgba(201, 162, 39, 0.28) !important;
+    padding: 5px 14px !important;
+    border-radius: 100px !important;
+    font-size: 0.74rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
+  }
+  .specs-title {
+    font-size: 2.4rem !important;
+    font-weight: 900 !important;
+    color: var(--navy) !important;
+    margin: 0 0 12px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .specs-desc {
+    font-size: 1.02rem !important;
+    color: #475569 !important;
+    line-height: 1.65 !important;
+    margin: 0 0 24px !important;
+    max-width: 660px !important;
+  }
+  .specs-highlight-chips {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 24px !important;
+  }
+  .specs-hl-chip {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    padding: 14px 10px !important;
+    text-align: center !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+  }
+  .specs-hl-chip:hover {
+    border-color: var(--gold) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(201, 162, 39, 0.12) !important;
+    background: #FFFFFF !important;
+  }
+  .specs-hl-label {
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
+    color: #64748B !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+  }
+  .specs-hl-val {
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    color: var(--navy) !important;
+    display: block !important;
+  }
+  .specs-quick-specs {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+    width: 100% !important;
+    padding: 16px 20px !important;
+    background: #F8FAFC !important;
+    border-radius: 12px !important;
+    border: 1px solid #E2E8F0 !important;
+  }
+  .specs-quick-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .specs-quick-item svg {
+    color: var(--gold) !important;
+    flex-shrink: 0 !important;
+  }
+  .specs-quick-lbl {
+    display: block !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #64748B !important;
+  }
+  .specs-quick-val {
+    display: block !important;
+    font-size: 0.86rem !important;
+    font-weight: 800 !important;
+    color: var(--navy) !important;
+  }
+  .specs-tabs-bar {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    margin-bottom: 28px !important;
+    position: static !important;
+    box-shadow: none !important;
+  }
+  @media (max-width: 980px) {
+    .specs-hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .specs-visual-card { max-width: 480px !important; margin: 0 auto !important; width: 100% !important; }
+    .specs-highlight-chips { grid-template-columns: repeat(2, 1fr) !important; }
+    .specs-quick-specs { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .specs-tabs-list { flex-direction: column !important; gap: 0 !important; }
+    .specs-tab-btn { width: 100% !important; border-bottom: none !important; border-left: 3px solid transparent !important; }
+    .specs-tab-btn.active { border-left-color: var(--gold) !important; background: #F8FAFC !important; }
+  }
+  @media (max-width: 640px) {
+    .specs-subnav-inner { flex-direction: column !important; align-items: stretch !important; }
+    .specs-back-btn { justify-content: center !important; }
+    .specs-model-selector-wrap { flex-direction: column !important; align-items: stretch !important; }
+    .specs-model-select { width: 100% !important; }
+    .specs-title { font-size: 1.8rem !important; }
+    .specs-highlight-chips { grid-template-columns: 1fr !important; }
+    .specs-sub-actions { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body class="specs-page-body">
+
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="/" class="navbar__logo">
+      <img src="assets/images/logo_white.png" alt="Shree Packaging Logo">
+    </a>
+    <nav class="navbar__nav" id="nav">
+      <a href="/" class="">Home</a>
+      <a href="about" class="">About</a>
+      <a href="products" class="active">Products</a>
+      <a href="why-us" class="">Why Us</a>
+      <a href="/brochure.pdf" target="_blank" rel="noopener noreferrer" class="navbar__brochure-btn" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:500;padding:8px 14px;border-radius:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Brochure</a>
+      <a href="contact" class="navbar__cta ">Get a Quote</a>
+    </nav>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- TOP BACK NAVIGATION BAR -->
+<div class="specs-subnav-bar">
+  <div class="container specs-subnav-inner">
+    <div class="specs-subnav-left">
+      <a id="backToProductsBtn" href="products" class="specs-back-btn" onclick="goBackToProduct(event)" title="Back to Products Catalog">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span>Back</span>
+      </a>
+      <span class="specs-nav-divider"></span>
+      <nav class="products-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="products" onclick="goBackToProduct(event)">Products</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current" id="breadcrumbProductTitle">Master Cartons</span>
+      </nav>
+    </div>
+
+    <!-- Product Switcher Selector -->
+    <div class="specs-model-selector-wrap">
+      <label for="specsModelSelect" class="specs-model-label">Select Product:</label>
+      <select id="specsModelSelect" class="specs-model-select" onchange="switchSpecsModel(this.value)">
+        <option value="master">Master Cartons (3/5/7 PLY)</option>
+        <option value="printed">Printed Master Cartons</option>
+        <option value="honeycomb">Honeycomb Cartons</option>
+        <option value="sheets">Corrugated Sheets &amp; Rolls</option>
+        <option value="inner">Inner Cartons &amp; Partitions</option>
+        <option value="duplex">Duplex Boxes</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- FULL-WIDTH PRODUCT HERO SPECIFICATION SHOWCASE -->
+<section class="specs-hero-section">
+  <div class="container">
+    <div class="specs-hero-grid">
+      <!-- Product Visual Display -->
+      <div class="specs-visual-card">
+        <div class="specs-img-box">
+          <img id="specsProductImg" src="" alt="Product Packaging Image">
+        </div>
+        <div class="specs-card-actions">
+          <a id="specsQuoteBtn" href="contact" class="btn btn-primary" style="width:100%;justify-content:center">Request Factory Quote →</a>
+          <div class="specs-sub-actions">
+            <a id="specsSampleBtn" href="contact?intent=sample" class="btn btn-outline specs-action-sub-btn">Request 48h Sample Kit</a>
+            <a id="specsCompareLink" href="compare" class="specs-compare-jump specs-action-sub-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+              Compare Products →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Meta & Highlights -->
+      <div class="specs-info-card">
+        <div id="specsProductTag" class="tag" style="margin-bottom:8px"></div>
+        <h1 id="specsProductTitle" class="specs-title"></h1>
+        <p id="specsProductDesc" class="specs-desc"></p>
+
+        <!-- 4 Key Technical Highlights -->
+        <div class="specs-highlight-chips" id="specsHighlightChips"></div>
+
+        <!-- Quick Engineering Parameters Bar -->
+        <div class="specs-quick-specs">
+          <div class="specs-quick-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <div>
+              <span class="specs-quick-lbl">Standard Fluting</span>
+              <strong class="specs-quick-val">Narrow (B), Broad (C), Micro (E), Multi (BC)</strong>
+            </div>
+          </div>
+          <div class="specs-quick-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div>
+              <span class="specs-quick-lbl">Production Turnaround</span>
+              <strong class="specs-quick-val">24–48h Fast Track Dispatch</strong>
+            </div>
+          </div>
+          <div class="specs-quick-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <span class="specs-quick-lbl">Quality Certification</span>
+              <strong class="specs-quick-val">100% Lab Tested &middot; COA Provided</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-WIDTH SECTION NAVIGATION TABS -->
+<div class="specs-tabs-bar">
+  <div class="container">
+    <div class="specs-tabs-list">
+      <button class="specs-tab-btn active" id="tabBtnAnatomy" onclick="switchSpecsTab('anatomy')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        <span>Layer Anatomy &amp; Manufacturing Flow</span>
+      </button>
+      <button class="specs-tab-btn" id="tabBtnTesting" onclick="switchSpecsTab('testing')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>Engineering Specs &amp; Testing COA</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT CONTAINER -->
+<section class="section" style="padding-top: 10px; padding-bottom: 80px;">
+  <div class="container">
+
+    <!-- TAB 1: LAYER ANATOMY & 5-STAGE MANUFACTURING -->
+    <div id="specsContentAnatomy" class="specs-tab-pane active">
+      
+      <!-- Cross-Section Layer Architecture Card -->
+      <div class="specs-section-box">
+        <div class="specs-box-header">
+          <div>
+            <span class="specs-eyebrow">Structural Integrity</span>
+            <h2 class="specs-section-title">Cross-Section Layer Architecture</h2>
+          </div>
+          <p class="specs-section-subtitle">Discover how each individual paper liner, fluting wave, and starch adhesive bond contributes to overall stacking, burst, and puncture resistance.</p>
+        </div>
+
+        <div class="specs-architecture-layout">
+          <!-- Illustrated Cross-Section Visual Blueprint Column -->
+          <div class="specs-blueprint-card">
+            <div class="specs-blueprint-header">
+              <div class="specs-blueprint-tag">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                <span>Cross-Section Profile · CAD Draft</span>
+              </div>
+              <span id="boardCaliperBadge" class="specs-blueprint-caliper">Caliper: ~7.2mm</span>
+            </div>
+            
+            <!-- Dynamic SVG Diagram Canvas -->
+            <div id="boardDiagramCanvas" class="board-diagram-canvas"></div>
+            
+            <div class="specs-blueprint-footer">
+              <span class="blueprint-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                Click or hover any layer in the CAD drawing to cross-reference technical specifications
+              </span>
+            </div>
+          </div>
+
+          <!-- Detailed Layer Spec Cards Column -->
+          <div class="specs-layers-col">
+            <!-- Interactive 3-PLY / 5-PLY / 7-PLY Switcher (for Master Cartons) -->
+            <div id="specsPlySwitcher" class="ply-switcher" style="display:none;margin-bottom:16px;"></div>
+
+            <!-- Layer Stack Container -->
+            <div id="specsLayersContainer" class="layers-container" style="margin-bottom:0"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-Stage Precision Manufacturing Flow Card -->
+      <div class="specs-section-box" style="margin-top:40px;">
+        <div class="specs-box-header">
+          <div>
+            <span class="specs-eyebrow">Factory Engineering</span>
+            <h2 class="specs-section-title">5-Stage Factory Manufacturing Flow</h2>
+          </div>
+          <p class="specs-section-subtitle">Every carton is manufactured under strict steam heating, tension-controlled nip pressure, and computerized slotting.</p>
+        </div>
+
+        <!-- 5-Stage Visual Machinery Pipeline -->
+        <div class="mfg-pipeline-wrapper">
+          <div class="mfg-pipeline-header">
+            <div class="mfg-pipeline-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              <span>Automated Corrugator Line Assembly Pipeline</span>
+            </div>
+            <span style="font-size:0.75rem;color:#64748B;font-weight:600;">Continuous Infeed &rarr; Outfeed Process</span>
+          </div>
+          <div id="specsMfgPipeline" class="mfg-pipeline-track"></div>
+        </div>
+
+        <!-- 5 Detailed Machine Process Cards -->
+        <div id="specsMfgStepsContainer" class="mfg-steps-container" style="margin-bottom:0"></div>
+      </div>
+
+    </div>
+
+    <!-- TAB 2: COMPLETE ENGINEERING SPECIFICATIONS & APPLICATIONS -->
+    <div id="specsContentTesting" class="specs-tab-pane">
+      
+      <div class="specs-section-box">
+        <div class="specs-box-header">
+          <div>
+            <span class="specs-eyebrow">Laboratory Certified Parameters</span>
+            <h2 class="specs-section-title">Technical Engineering Data &amp; Testing COA</h2>
+          </div>
+          <p class="specs-section-subtitle">All parameters are verified via calibrated in-house pneumatic burst testers and digital Cobb 60 moisture equipment.</p>
+        </div>
+
+        <table class="specs-table" style="margin-bottom:32px;">
+          <tbody id="specsTableBody"></tbody>
+        </table>
+
+        <div class="spec-table-title" style="margin-bottom:14px;">Recommended Industrial Applications</div>
+        <div class="product-modal__apps" id="specsAppsContainer" style="margin-bottom:0"></div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM NEXT PRODUCT PAGINATION -->
+    <div class="specs-pagination-bar">
+      <a id="prevProductLink" href="#" class="specs-nav-prev" onclick="navigateModel(-1, event)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <div>
+          <span class="specs-nav-sub">Previous Product</span>
+          <strong id="prevProductName"></strong>
+        </div>
+      </a>
+      <a id="nextProductLink" href="#" class="specs-nav-next" onclick="navigateModel(1, event)">
+        <div>
+          <span class="specs-nav-sub">Next Product</span>
+          <strong id="nextProductName"></strong>
+        </div>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1">
+    <h2 class="cta-banner__title">Need a Custom Size or Grade?</h2>
+    <p class="cta-banner__desc">We manufacture custom samples and prototypes based on your product weight and dimensions.</p>
+    <div class="cta-banner__actions">
+      <a href="contact" class="btn btn-primary">Contact Our Engineers →</a>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL LOGISTICS CORRIDOR -->
+<section class="logistics-corridor">
+  <div class="container">
+    <div class="logistics-corridor__inner">
+      <div>
+        <h3 class="logistics-corridor__title">Strategic Highway Location &amp; <span>JIT Dispatch</span></h3>
+        <p class="logistics-corridor__desc">Direct access to NH-19 (Delhi-Mathura Highway) and the KMP Expressway from our Palwal manufacturing plant guarantees rapid turnaround times for time-critical supply chains.</p>
+      </div>
+      <div class="logistics-hubs">
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            &lt; 3 Hours
+          </div>
+          <div class="logistics-hub__region">Delhi NCR &amp; Industrial Belts</div>
+          <div class="logistics-hub__note">Faridabad, Gurugram, Ballabgarh</div>
+        </div>
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            &lt; 24 Hours
+          </div>
+          <div class="logistics-hub__region">North India Manufacturing Hubs</div>
+          <div class="logistics-hub__note">Haryana, UP, Rajasthan, Punjab</div>
+        </div>
+        <div class="logistics-hub">
+          <div class="logistics-hub__time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            Scheduled
+          </div>
+          <div class="logistics-hub__region">Pan-India Freight Logistics</div>
+          <div class="logistics-hub__note">FTL &amp; Direct Factory Dispatches</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <img src="assets/images/logo_white.png" alt="Shree Packaging Logo" class="footer__logo">
+        <p class="footer__desc">Shree Packaging (Unit of Vansh Traders) is an ISO 9001:2015 certified manufacturer of high-performance corrugated packaging boxes, serving leading brands across Delhi NCR and North India.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Quick Links</h4>
+        <div class="footer__links">
+          <a href="/">Home</a>
+          <a href="about">About Us</a>
+          <a href="products">Products</a>
+          <a href="compare">Compare Products</a>
+          <a href="why-us">Why Choose Us</a>
+          <a href="/brochure.pdf" target="_blank" rel="noopener noreferrer">Download Brochure</a>
+          <a href="contact">Contact Us</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__heading">Products</h4>
+        <div class="footer__links">
+          <a href="product-specs?product=master">Master Cartons (3/5/7 PLY)</a>
+          <a href="product-specs?product=printed">Printed Master Cartons</a>
+          <a href="product-specs?product=honeycomb">Honeycomb Cartons</a>
+          <a href="product-specs?product=sheets">Corrugated Sheets &amp; Rolls</a>
+          <a href="product-specs?product=inner">Inner Cartons</a>
+          <a href="product-specs?product=duplex">Duplex Boxes</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contact</h4>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+          <span><strong>Vansh Traders</strong><br>Plot no. 7//22/2, Behind Indian Oil Petrol Pump, Aghwanpur, Palwal – 121102, Haryana</span>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
+          <div>
+            <span class="footer__phone-line"><a href="tel:8930049050" style="color:inherit;text-decoration:none">+91 89300 49050</a> <span class="footer__phone-name">(Lakshay&nbsp;Gupta)</span></span>
+            <span class="footer__phone-line"><a href="tel:9812039971" style="color:inherit;text-decoration:none">+91 98120 39971</a> <span class="footer__phone-name">(Sachin&nbsp;Singhal)</span></span>
+          </div>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
+          <span><a href="mailto:shreepackaging.pwl@gmail.com" style="color:inherit;text-decoration:none">shreepackaging.pwl@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span class="current-year">2026</span> Shree Packaging. All rights reserved.</span>
+      <span>ISO 9001:2015 Certified Manufacturing Facility · Palwal, Haryana</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/918930049050?text=Hello%20Shree%20Packaging%2C%20I%20am%20reviewing%20your%20technical%20specifications%20and%20need%20assistance." 
+   target="_blank" 
+   class="floating-wa"
+   title="Chat on WhatsApp"
+   aria-label="Chat on WhatsApp">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+  style="display:none;position:fixed;bottom:100px;right:28px;z-index:9998;width:44px;height:44px;border-radius:50%;background:var(--navy);border:2px solid var(--gold-light);color:var(--gold-light);cursor:pointer;font-size:1.2rem;box-shadow:var(--shadow);"
+  title="Back to top">↑</button>
+
+<script>
+// Complete Technical Data Dictionary for All 6 Products
+const productsData = {
+  master: {
+    id: 'master',
+    name: 'Master Cartons',
+    tag: 'Heavy-Duty Industrial Shipping',
+    img: 'assets/images/product_master.png',
+    desc: 'Heavy-duty industrial corrugated shippers engineered for safe cargo consolidation, pallet stacking, and long-distance transit under extreme compression.',
+    highlights: [
+      { label: 'Construction', val: '3, 5 & 7 PLY Multi-Wall' },
+      { label: 'Burst Factor', val: '16 to 35+ BF Range' },
+      { label: 'Max Stack Load', val: 'Up to 500+ kg Static' },
+      { label: 'Moisture COA', val: '< 9% Moisture (Cobb 60)' }
+    ],
+    specs: {
+      'Board Construction': '3 PLY (Single Wall), 5 PLY (Double Wall), 7 PLY (Triple Wall)',
+      'Fluting Profiles': 'Narrow Flute (B: 3mm), Broad Flute (C: 4mm), Micro (E: 1.5mm), Multi-Wall (BC / BB)',
+      'Paper Grammage (GSM)': '120 GSM to 350 GSM Virgin Kraft & High-Performance Semi-Kraft',
+      'Burst Factor (BF)': '16 BF, 18 BF, 22 BF, 28 BF, up to 35+ BF Range',
+      'Bursting Strength': '8.0 to 22.5 kg/cm² (Pneumatic In-House Lab Verified)',
+      'Stacking / Load Capacity': 'Up to 500+ kg static warehouse stack load',
+      'Moisture Tolerance': 'Certified COA < 9% with Cobb 60 water absorption sizing',
+      'Print & Finishes': 'Plain Kraft or 1–2 Colour Flexo Shipping & Handling Markings'
+    },
+    applications: ['Automotive Ancillaries', 'Heavy Engineering Spares', 'Export Pallet Shippers', 'Electronics & Appliances', 'Warehouse Logistics'],
+    plyOptions: {
+      '3ply': {
+        name: '3 PLY (Single Wall)',
+        capacity: 'Light-to-Medium Freight (15–25 kg payloads)',
+        layers: [
+          { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Virgin Kraft (140–200 GSM / 20–28 BF)', strength: 'High tensile exterior skin resisting rough transit abrasion, box bursting, and humidity (Cobb 60 < 50).' },
+          { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
+          { type: 'flute', role: 'Fluted Arch Medium', spec: 'Narrow B-Flute (3mm) or Broad C-Flute (4mm)', strength: 'Continuous sinusoidal wave arches act like miniature architectural pillars, bearing vertical stacking compression.' },
+          { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
+          { type: 'liner', role: 'Inner Contact Liner', spec: 'Semi-Kraft / Kraft (120–180 GSM)', strength: 'Smooth, non-abrasive interior containment wall preventing internal product puncture and wear.' }
+        ]
+      },
+      '5ply': {
+        name: '5 PLY (Double Wall - BC Flute)',
+        capacity: 'Heavy-Duty Pallet Stacking (35–70 kg payloads - 3x Higher Compression)',
+        layers: [
+          { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Heavy Virgin Kraft (180–300 GSM / 24–35 BF)', strength: 'Primary puncture shield resisting external forklift bumps, corner drops, and ambient humidity.' },
+          { type: 'adhesive', text: 'High-Tack Starch Adhesive Line' },
+          { type: 'flute', role: 'Fluting 1 (Broad C-Flute)', spec: '4.0mm Arches (C-Wave Profile)', strength: 'High cushioning and extraordinary vertical stacking endurance for multi-tier warehouse palletizing.' },
+          { type: 'adhesive', text: 'Center Stabilizing Starch Bond' },
+          { type: 'liner', role: 'Center Reinforcing Linerboard', spec: 'High-Density Kraft (150–200 GSM)', strength: 'The structural I-beam spine that anchors both fluting profiles, preventing board deflection and wall buckling.' },
+          { type: 'adhesive', text: 'Second Flute Starch Bond' },
+          { type: 'flute', role: 'Fluting 2 (Narrow B-Flute)', spec: '3.0mm Arches (B-Wave Profile)', strength: 'Tight flute frequency delivers superior puncture resistance, flat outer support, and side impact absorption.' },
+          { type: 'adhesive', text: 'Bottom Starch Bond' },
+          { type: 'liner', role: 'Bottom Inner Liner', spec: 'Virgin/Semi-Kraft (140–220 GSM)', strength: 'Tough interior containment wall carrying heavy internal cargo weight without sagging.' }
+        ]
+      },
+      '7ply': {
+        name: '7 PLY (Triple Wall - Heavy Export)',
+        capacity: 'Extreme Industrial Payloads (150–500+ kg - Wooden Crate Alternative)',
+        layers: [
+          { type: 'liner', role: 'Outer Heavy Kraft Liner', spec: 'Extra Heavy Virgin Kraft (250–350 GSM / 35+ BF)', strength: 'Extreme maritime and export durability, high puncture shield for overseas sea freight.' },
+          { type: 'adhesive', text: 'High-Pressure Steam Starch Bond' },
+          { type: 'flute', role: 'Fluting 1 (C-Flute)', spec: '4.0mm Wave Arches', strength: 'First-line vertical compression absorption for extreme top stacking.' },
+          { type: 'adhesive', text: 'Interlayer Starch Bond' },
+          { type: 'liner', role: 'Center Reinforcing Liner 1', spec: '200 GSM Kraft', strength: 'Structural partition neutralizing shear stresses between flutings.' },
+          { type: 'adhesive', text: 'Interlayer Starch Bond' },
+          { type: 'flute', role: 'Fluting 2 (B-Flute)', spec: '3.0mm Wave Arches', strength: 'Dense crush resistance dampening dynamic lateral shipping vibrations.' },
+          { type: 'adhesive', text: 'Interlayer Starch Bond' },
+          { type: 'liner', role: 'Center Reinforcing Liner 2', spec: '200 GSM Kraft', strength: 'Second structural bridge locking board geometry against twisting.' },
+          { type: 'adhesive', text: 'Interlayer Starch Bond' },
+          { type: 'flute', role: 'Fluting 3 (C/B Flute)', spec: '3.5mm Wave Arches', strength: 'Third tier of continuous architectural arches for extreme payload containment.' },
+          { type: 'adhesive', text: 'Heavy Inner Bond' },
+          { type: 'liner', role: 'Bottom Inner Liner', spec: 'Heavy Kraft (200–280 GSM)', strength: 'Heavy-duty containment wall supporting heavy metal castings and engine spares.' }
+        ]
+      }
+    },
+    mfgSteps: [
+      { step: '01', title: 'Paper Reel Conditioning & Steam Preheating', tech: '160°C–180°C Steam Cylinders', desc: 'Raw virgin Kraft and fluting reels pass over heated steam drums to balance moisture and plasticize paper fibers, guaranteeing zero cracking during high-speed corrugation.' },
+      { step: '02', title: 'Thermo-Mechanical Flute Arch Forming', tech: 'Precision Calibrated Corrugator Rolls', desc: 'Under mechanical pressure and steam heat, paper is drawn through flute rolls, thermo-forming uniform sinusoidal arches with permanent elastic memory.' },
+      { step: '03', title: 'Starch Adhesive Application & Sandwiching', tech: 'Direct Glue Roll Unit', desc: 'Micro-metered starch adhesive is applied strictly to flute crests. Linerboards and flutings are joined under uniform nip pressure, creating a permanent molecular bond.' },
+      { step: '04', title: 'Double-Backer Hot-Plate Curing', tech: 'Tensioned Curing Hot Beds', desc: 'The multi-ply board travels through heated bed plates to gelatinize the starch and eliminate excess steam, curing the sandwich into a rigid, non-delaminating structural board.' },
+      { step: '05', title: 'CNC Rotary Creasing, Slotting & Jointing', tech: 'High-Speed Flexo Folder-Gluer & Stitcher', desc: 'Calibrated rotary slitting knives and 90° creasing scores allow crack-free folding, followed by high-tensile zinc-coated wire stitching or industrial cold-glue jointing.' }
+    ]
+  },
+  printed: {
+    id: 'printed',
+    name: 'Printed Master Cartons',
+    tag: 'High-Impact Branded Packaging',
+    img: 'assets/images/product_printed.png',
+    desc: 'Custom branded corrugated cartons designed to elevate brand visibility while ensuring cargo protection with multi-colour printing up to 6 colours.',
+    highlights: [
+      { label: 'Printing', val: 'Up to 6 Colours Flexo / Offset' },
+      { label: 'Paper Grade', val: 'Bleached White / Virgin Kraft' },
+      { label: 'Burst Factor', val: '18 to 32+ BF' },
+      { label: 'Scannability', val: 'GS1 Barcode & QR Certified' }
+    ],
+    specs: {
+      'Board Construction': '3 PLY and 5 PLY Corrugated Board',
+      'Fluting Profiles': 'B-Flute (3mm), E-Flute (1.5mm), or BC Double Wall',
+      'Paper Grammage (GSM)': '140 GSM to 300 GSM Kraft or Bleached White Top Liner',
+      'Burst Factor (BF)': '18 BF to 32+ BF',
+      'Bursting Strength': '9.0 to 18.0 kg/cm²',
+      'Stacking / Load Capacity': 'Up to 350+ kg stack rating',
+      'Moisture Tolerance': 'Certified COA < 9% with Cobb 60 water testing',
+      'Print & Finishes': 'Multi-colour Flexographic & Offset up to 6 colours, GS1 Barcodes & QR'
+    },
+    applications: ['E-Commerce & D2C Brands', 'FMCG Food & Beverages', 'Consumer Electronics', 'Footwear & Apparel Logistics', 'Retail Distribution'],
+    layers: [
+      { type: 'liner', role: 'Premium Top Printable Liner', spec: 'Bleached White or Golden Virgin Kraft (160–300 GSM)', strength: 'Ultra-smooth, low-porosity surface engineered for crisp dot reproduction, vibrant ink laydown, and high scuff resistance.' },
+      { type: 'adhesive', text: 'Food-Grade Starch Adhesive Line' },
+      { type: 'flute', role: 'Cushioning Fluted Medium', spec: 'Fine B-Flute (3.0mm) or Micro E-Flute (1.5mm)', strength: 'Dense flute frequency prevents "washboarding" flute lines on printed graphics while providing excellent shock cushioning.' },
+      { type: 'adhesive', text: 'Food-Grade Starch Adhesive Line' },
+      { type: 'liner', role: 'Bottom Inner Liner', spec: 'High-Yield Kraft Liner (140–220 GSM)', strength: 'Interior containment liner providing tension balance so the printed box remains dead-flat without warping.' }
+    ],
+    mfgSteps: [
+      { step: '01', title: 'Surface Preparation & Board Conditioning', tech: 'Smooth Calendered Kraft Liners', desc: 'Top-sheet white or virgin Kraft paper is inspected for surface flatness and moisture equilibrium to guarantee razor-sharp ink adhesion without bleeding.' },
+      { step: '02', title: 'High-Definition Multi-Colour Flexo Printing', tech: 'Up to 6-Colour Flexographic Station', desc: 'Water-based eco-friendly inks are applied using high-mesh anilox rollers and photopolymer stereo plates, printing sharp branding, barcodes, and handling graphics.' },
+      { step: '03', title: 'Rapid IR Curing & Smudge Protection', tech: 'Inline Infrared Dryers', desc: 'Inline IR drying units instantly cure ink films at high speeds, locking in vibrancy and preventing ink set-off or smudging during subsequent conversion.' },
+      { step: '04', title: 'Precision CNC Rotary Die-Scoring', tech: 'Laser-Cut Rotary Dies', desc: 'Precision creasing scores the board along folding axes without fracturing the printed exterior liner or fluting integrity.' },
+      { step: '05', title: 'Automated Folding & High-Tack Glue Jointing', tech: 'Computerized Folder-Gluer Line', desc: 'Automated folding arms square the carton with laser-guided alignment, applying industrial adhesive for durable, tamper-proof jointing.' }
+    ]
+  },
+  honeycomb: {
+    id: 'honeycomb',
+    name: 'Honeycomb Cartons',
+    tag: 'Structural Rigid Core',
+    img: 'assets/images/product_honeycomb.png',
+    desc: 'Engineered with high-density hexagonal honeycomb core structures that deliver extraordinary vertical compression strength as a 100% recyclable wooden crate alternative.',
+    highlights: [
+      { label: 'Core Depth', val: '10mm to 50mm Hex Cells' },
+      { label: 'Load Rating', val: '1,000+ kg Static Crush' },
+      { label: 'Pulp Grade', val: '180–400 GSM Heavy Kraft' },
+      { label: 'Eco-Standard', val: '100% Wooden Crate Alternative' }
+    ],
+    specs: {
+      'Board Construction': 'Dual Kraft Sandwich Facers with Continuous Hexagonal Paper Honeycomb Core',
+      'Core Thickness': '10 mm, 15 mm, 20 mm, up to 50 mm cell depths',
+      'Paper Grammage (GSM)': '180 GSM to 400 GSM High-Yield Heavy Kraft',
+      'Burst Factor (BF)': '24 BF to 40+ BF',
+      'Bursting Strength': 'Exceeds Standard Corrugated (High Puncture & Crush Resistance)',
+      'Stacking / Load Capacity': 'Extreme Vertical Load (1,000+ kg Static Capacity)',
+      'Moisture Tolerance': 'Special Water-Resistant Barrier Coatings Available',
+      'Print & Finishes': 'Flexographic Corporate Identity and International Export Stencils'
+    },
+    applications: ['Wooden Crate Replacement', 'Automotive Engines & Gearboxes', 'Solar PV Modules & Inverters', 'Industrial Machinery Export', 'Heavy Glass Panes'],
+    layers: [
+      { type: 'liner', role: 'Top Heavy-Duty Kraft Skin', spec: 'Virgin Heavy Kraft (200–400 GSM / 32+ BF)', strength: 'High tensile face skin distributing point loads across hundreds of underlying hexagonal cells.' },
+      { type: 'adhesive', text: 'Continuous High-Tack Hot-Melt Adhesive' },
+      { type: 'honeycomb', role: 'Continuous Hexagonal Core Cells', spec: 'Expanded Paper Honeycomb (10mm to 50mm Cell Depth)', strength: 'Hexagonal geometry provides 360° continuous vertical resistance with zero weak directions, bearing 1,000+ kg static compression.' },
+      { type: 'adhesive', text: 'Continuous High-Tack Hot-Melt Adhesive' },
+      { type: 'liner', role: 'Bottom Heavy-Duty Kraft Skin', spec: 'Virgin Heavy Kraft (200–400 GSM / 32+ BF)', strength: 'Bottom tension skin completing the rigid sandwich panel, preventing sagging or beam bending.' }
+    ],
+    mfgSteps: [
+      { step: '01', title: 'Precision Strip Gluing & Block Stacking', tech: 'Continuous Honeycomb Core Cell Winder', desc: 'Continuous Kraft webs receive staggered parallel glue lines, stacked and bonded into a compact, compressed paper core block.' },
+      { step: '02', title: 'Uniform Cell Expansion', tech: 'Automated Core Expansion Unit', desc: 'The bonded block is mechanically stretched in length, expanding parallel strips into uniform, rigid hexagonal cellular geometry.' },
+      { step: '03', title: 'Dual-Skin Hot Press Lamination', tech: 'Continuous Double-Belt Heated Press', desc: 'Heavy top and bottom Kraft facer boards are laminated to the expanded honeycomb cell edges under uniform continuous heat and pressure.' },
+      { step: '04', title: 'Thermal Drying & Moisture Barrier Treatment', tech: 'Multi-Zone Heated Curing Oven', desc: 'Panels pass through curing tunnels to fully polymerize the adhesive and apply optional moisture-barrier coatings for export duty.' },
+      { step: '05', title: 'High-Precision CNC Sizing & Edge Capping', tech: 'Diamond-Tipped Beam Saws & Mitre Folders', desc: 'Panels are slit to exact pallet or carton dimensions, V-grooved for 90° box assembly, and fitted with edge-guard caps.' }
+    ]
+  },
+  sheets: {
+    id: 'sheets',
+    name: 'Corrugated Sheets & Rolls',
+    tag: 'Surface & Transit Protection',
+    img: 'assets/images/product_sheets.png',
+    desc: 'Continuous corrugated rolls and multi-ply flat sheets engineered for pallet layering, surface interleaving, and cushioning against vibration and abrasion.',
+    highlights: [
+      { label: 'Format', val: '2 PLY Rolls & Multi-Ply Pads' },
+      { label: 'Roll Width', val: 'Up to 1800 mm Width' },
+      { label: 'Grammage', val: '80 to 250 GSM' },
+      { label: 'Cushioning', val: 'High-Elasticity Arch Waves' }
+    ],
+    specs: {
+      'Board Construction': '2 PLY Single-Face Continuous Rolls or 3/5 PLY Flat Separator Sheets',
+      'Fluting Profiles': 'B-Flute (High cushioning) or E-Flute (Fine bending & wrapping)',
+      'Paper Grammage (GSM)': '80 GSM to 250 GSM',
+      'Burst Factor (BF)': '14 BF to 24 BF',
+      'Cushioning Factor': 'High elasticity for shock attenuation and scratch prevention',
+      'Dimensions': 'Roll widths up to 1800 mm; any slit cut sheet dimensions',
+      'Moisture Tolerance': 'Standard Industrial Dry Pulp Grade',
+      'Print & Finishes': 'Natural unprinted Kraft or custom batch markings'
+    },
+    applications: ['Pallet Layer Separators', 'Steel & Aluminium Coil Packing', 'Ceramic Tile Interleaving', 'Furniture Edge Wrapping', 'Void Filling & Shock Cushioning'],
+    layers: [
+      { type: 'liner', role: 'Base Carrier Kraft Liner', spec: 'Semi-Kraft / Virgin Kraft (100–220 GSM)', strength: 'Tough, flexible backing sheet providing continuous tensile strength and tear resistance during wrapping.' },
+      { type: 'adhesive', text: 'High-Tack Starch Adhesive Bond' },
+      { type: 'flute', role: 'Exposed Fluted Cushioning Arches', spec: 'B-Flute (3.0mm) or E-Flute (1.5mm) Wave Profile', strength: 'Open flute arches act as continuous miniature shock absorbers, dissipating impact vibrations and preventing scratches.' }
+    ],
+    mfgSteps: [
+      { step: '01', title: 'Reel Tensioning & Steam Plasticizing', tech: 'Single-Facer Infeed Section', desc: 'Paper reels are conditioned under regulated steam heat to make fibers pliant for rapid arch forming without microscopic tears.' },
+      { step: '02', title: 'Continuous Fluting Profile Forming', tech: 'High-Precision Fluting Rolls', desc: 'The medium is pressed between precision fluting rolls to create consistent cushioning waves at speeds exceeding 120 m/min.' },
+      { step: '03', title: 'Single-Face Starch Bonding', tech: 'Glue Applicator Roll & Pressure Roll', desc: 'Starch glue is applied to flute tips and instantly pressed against the base linerboard to create an open-face flexible corrugated sheet.' },
+      { step: '04', title: 'Slitting to Custom Roll Widths', tech: 'Rotary Slitter Knives', desc: 'Slitting blades trim edges and cut continuous webs to specified widths (from 150 mm up to 1800 mm).' },
+      { step: '05', title: 'Tension-Controlled Mandrel Coiling or Sheeting', tech: 'Automated Surface Winder / Rotary Guillotine', desc: 'Wound under uniform pneumatic tension into compact rolls, or cross-cut into dead-flat interleaving separator pads.' }
+    ]
+  },
+  inner: {
+    id: 'inner',
+    name: 'Inner Cartons & Partition Grids',
+    tag: 'Primary & Unit Packaging',
+    img: 'assets/images/product_inner.png',
+    desc: 'Precision die-cut unit containers and custom partition grids designed to snugly protect individual products inside master shipping containers.',
+    highlights: [
+      { label: 'Fluting', val: 'Micro E & F Flute' },
+      { label: 'Die-Cutting', val: 'CNC Automated Zero Tolerance' },
+      { label: 'Partitions', val: 'Interlocking Cell Matrices' },
+      { label: 'Compliance', val: 'Pharma & Food Contact Safe' }
+    ],
+    specs: {
+      'Board Construction': 'Micro-Flute (E / F Flute) or High-Density Solid Kraft Board',
+      'Die-Cutting Tolerance': 'Precision CNC Automated Die-Cutting with Self-Locking Flaps',
+      'Paper Grammage (GSM)': '120 GSM to 280 GSM',
+      'Burst Factor (BF)': '16 BF to 26 BF',
+      'Internal Partitions': 'Bespoke interlocked cell dividers (bottle/jar matrices)',
+      'Closure Profiles': 'Tuck-in top, crash-lock base, envelope bottom',
+      'Moisture Tolerance': 'Pharma & food contact compliant dry board',
+      'Print & Finishes': 'High-definition flexo / offset with barcodes and SKU indicators'
+    },
+    applications: ['Pharmaceutical Vials & Ampoules', 'Cosmetic Jars & Perfumes', 'Precision Metal Components', 'Electrical Sensors & Relays', 'Glassware Separation Grids'],
+    layers: [
+      { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Virgin Kraft or White Top (120–220 GSM)', strength: 'Smooth, fiber-tight surface preventing particulate dust from shedding onto sensitive goods.' },
+      { type: 'adhesive', text: 'Modified Starch Adhesive Line' },
+      { type: 'flute', role: 'Micro-Flute Shock Dampener', spec: 'E-Flute (1.5mm) or F-Flute (1.0mm) Micro Arches', strength: 'Ultra-thin, high-density flute arches provide exceptional edge crush rigidity and snug vibration dampening.' },
+      { type: 'adhesive', text: 'Modified Starch Adhesive Line' },
+      { type: 'liner', role: 'Inner Contact Liner', spec: 'Smooth Non-Abrasive Kraft (120–200 GSM)', strength: 'Soft inner contact face protecting glass bottles, polished chrome, or pharma vials from scuffing.' }
+    ],
+    mfgSteps: [
+      { step: '01', title: 'Micro-Flute Board Corrugation', tech: 'Precision Micro-Corrugator', desc: 'High-density E/F flute board is manufactured with flat surface characteristics and minimal board caliper for compact packaging.' },
+      { step: '02', title: 'CAD Laser-Cut Die Preparation', tech: 'CNC Laser Die-Cutting Board', desc: 'Hardwood die boards are laser-cut with calibrated channels and fitted with hardened Swiss steel creasing and cutting rules.' },
+      { step: '03', title: 'High-Precision Automated Platen Die-Cutting', tech: 'Automatic Flatbed Die-Cutter', desc: 'Sheets are punched in a single stroke with zero-tolerance accuracy for self-locking tabs, tuck-in flaps, and finger pulls.' },
+      { step: '04', title: 'Automated Matrix Slotting & Interlocking Partitions', tech: 'High-Speed CNC Slotting Unit', desc: 'Partition strips are slotted with reciprocal interlocking grooves, assembling into multi-cell grids that never collapse or shift.' },
+      { step: '05', title: 'Waste Stripping & Unit Bundling', tech: 'Automated Dynamic Stripping Station', desc: 'All internal scrap and window blanks are stripped cleanly, bundling flat-pack cartons ready for instant fold-and-pack assembly.' }
+    ]
+  },
+  duplex: {
+    id: 'duplex',
+    name: 'Duplex Boxes',
+    tag: 'Retail & Shelf-Ready Presentation',
+    img: 'assets/images/product_duplex.png',
+    desc: 'Smooth-coated white-back or grey-back duplex board packaging delivering crisp retail-grade aesthetics, sharp creasing, and vibrant offset finishing.',
+    highlights: [
+      { label: 'Surface Coating', val: 'Double Clay Coated High-Gloss' },
+      { label: 'Print Sharpness', val: '300+ DPI Offset Lithography' },
+      { label: 'Caliper Range', val: '230 to 450 GSM Heavy Board' },
+      { label: 'Finishing', val: 'Spot UV, Foil & Aqueous Coat' }
+    ],
+    specs: {
+      'Board Construction': 'Coated Duplex Paperboard (High-White Back or Grey Back)',
+      'Board Caliper (GSM)': '230 GSM, 280 GSM, 320 GSM, 380 GSM, up to 450 GSM',
+      'Surface Coating': 'Double clay coated ultra-smooth printing surface',
+      'Print Capabilities': 'High-definition multi-colour offset lithography',
+      'Finishing Options': 'Gloss/Matt aqueous coating, Spot UV, thermal lamination, gold foil',
+      'Folding Efficiency': 'High-speed automated packaging line folding compatibility',
+      'Moisture Tolerance': 'Coated moisture barrier on exterior facing',
+      'Safety Standards': 'Food, confectionery, and OTC pharmaceutical compliant'
+    },
+    applications: ['Pharmaceutical Monocartons', 'Footwear Boxes', 'Confectionery & Bakery Packs', 'Personal Care & Cosmetics', 'Hardware & Fasteners Shelf Retail'],
+    layers: [
+      { type: 'liner', role: 'Double Clay Coated Top Surface', spec: 'Bleached Chemical Virgin Fiber (20–30 GSM Coat)', strength: 'Ultra-smooth, high-gloss surface delivering exceptional whiteness and photographic 300+ DPI print sharpness.' },
+      { type: 'liner', role: 'Bleached Chemical Fiber Underlayer', spec: 'Virgin Kraft Pulp Sub-layer', strength: 'Provides high brightness foundation preventing grey core show-through and enhancing ink vibrancy.' },
+      { type: 'flute', role: 'High-Density Mechanical Fiber Core', spec: 'Compressed Multi-Ply Pulp Core', strength: 'Dense fibrous matrix delivering stiff snap, excellent caliper thickness, and rigid score line folding memory.' },
+      { type: 'liner', role: 'Bottom Kraft / Grey Backing', spec: 'Recycled Kraft or White Backing (100–180 GSM)', strength: 'Smooth interior backing suitable for food contact, pharma inserts, and clean adhesive sealing.' }
+    ],
+    mfgSteps: [
+      { step: '01', title: 'Multi-Cylinder Board Calendering & Coating', tech: 'Multi-Fourdrinier Board Machine', desc: 'Virgin pulp and fiber layers are formed, calendered through heated steel rolls, and double clay coated for micro-smoothness.' },
+      { step: '02', title: 'High-Resolution Multi-Colour Offset Lithography', tech: 'Heidelberg High-Speed Offset Press', desc: 'Precision offset plates transfer crisp brand graphics, micro-text, and pantone shades with exact dot alignment.' },
+      { step: '03', title: 'Protective Barrier & Embellishment Finishing', tech: 'Inline UV & Aqueous Varnish Coater', desc: 'Gloss/matte aqueous coating or Spot UV is applied, shielding the print against fingerprint smudges, oils, and moisture.' },
+      { step: '04', title: 'High-Speed Platen Die-Cutting & Embossing', tech: 'CNC Platen Punching Press', desc: 'Creasing rules score folding hinges without cracking the clay coating, while embossing plates raise brand logos in relief.' },
+      { step: '05', title: 'Automated Crash-Lock Folding & Cold Gluing', tech: 'Automated Folder-Gluer Machine', desc: 'Sides are folded and bonded with electronic glue detection, producing collapsible pre-glued boxes that pop open instantly.' }
+    ]
+  }
+};
+
+const productKeys = ['master', 'printed', 'honeycomb', 'sheets', 'inner', 'duplex'];
+let currentModelKey = 'master';
+let currentPlyKey = '5ply';
+
+function getUrlProduct() {
+  const params = new URLSearchParams(window.location.search);
+  const m = params.get('product') || params.get('model');
+  return (m && productsData[m]) ? m : 'master';
+}
+
+function goBackToProduct(e) {
+  e.preventDefault();
+  window.location.href = `products#${currentModelKey}`;
+}
+
+function switchSpecsModel(modelKey) {
+  if (!productsData[modelKey]) return;
+  currentModelKey = modelKey;
+  currentPlyKey = '5ply';
+
+  // Update dropdown value
+  document.getElementById('specsModelSelect').value = modelKey;
+
+  // Update back button href
+  document.getElementById('backToProductsBtn').href = `products#${modelKey}`;
+
+  // Update URL silently
+  window.history.replaceState(null, '', `product-specs?product=${modelKey}`);
+
+  // Render product specs
+  renderSpecsPage();
+}
+
+function switchSpecsTab(tabName) {
+  const btnAnatomy = document.getElementById('tabBtnAnatomy');
+  const btnTesting = document.getElementById('tabBtnTesting');
+  const contentAnatomy = document.getElementById('specsContentAnatomy');
+  const contentTesting = document.getElementById('specsContentTesting');
+
+  if (tabName === 'anatomy') {
+    btnAnatomy.classList.add('active');
+    btnTesting.classList.remove('active');
+    contentAnatomy.classList.add('active');
+    contentTesting.classList.remove('active');
+  } else {
+    btnTesting.classList.add('active');
+    btnAnatomy.classList.remove('active');
+    contentTesting.classList.add('active');
+    contentAnatomy.classList.remove('active');
+  }
+}
+
+function selectPly(plyKey) {
+  currentPlyKey = plyKey;
+  renderLayers();
+}
+
+function getMachineSvg(stepIdx) {
+  const svgs = [
+    // 01: Paper Reel Conditioning & Steam Preheating
+    `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" rx="8" fill="#0D1B2A"/>
+      <line x1="10" y1="78" x2="150" y2="78" stroke="#1E3A5F" stroke-width="2"/>
+      <path d="M22 78 L26 44 L34 44 L38 78 Z" fill="#334155"/>
+      <circle cx="30" cy="42" r="22" fill="#C89666" stroke="#8C5E35" stroke-width="1.5"/>
+      <circle cx="30" cy="42" r="16" fill="#B58253"/>
+      <circle cx="30" cy="42" r="6" fill="#475569"/>
+      <path d="M62 78 L65 52 L71 52 L74 78 Z" fill="#334155"/>
+      <circle cx="68" cy="50" r="16" fill="#E2B17F" stroke="#A07248" stroke-width="1.5"/>
+      <circle cx="68" cy="50" r="5" fill="#475569"/>
+      <path d="M30 20 Q 55 18 80 34" stroke="#E2B17F" stroke-width="2" fill="none"/>
+      <path d="M68 34 Q 85 32 98 46" stroke="#C89666" stroke-width="2" fill="none"/>
+      <rect x="96" y="26" width="34" height="46" rx="4" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/>
+      <circle cx="113" cy="49" r="14" fill="#334155" stroke="#EF4444" stroke-width="2" stroke-dasharray="3 2"/>
+      <circle cx="113" cy="49" r="4" fill="#EF4444"/>
+      <path d="M104 22 Q 106 14 108 22 Q 110 14 112 22" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+      <path d="M116 20 Q 118 12 120 20 Q 122 12 124 20" stroke="#94A3B8" stroke-width="1.5" fill="none"/>
+      <rect x="130" y="16" width="26" height="13" rx="3" fill="#EF4444"/>
+      <text x="143" y="25" fill="#FFFFFF" font-size="7" font-family="monospace" font-weight="bold" text-anchor="middle">180°C</text>
+      <line x1="130" y1="52" x2="154" y2="52" stroke="#E2B17F" stroke-width="2.5"/>
+    </svg>`,
+
+    // 02: Thermo-Mechanical Flute Arch Forming
+    `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" rx="8" fill="#0D1B2A"/>
+      <line x1="10" y1="78" x2="150" y2="78" stroke="#1E3A5F" stroke-width="2"/>
+      <rect x="30" y="66" width="100" height="12" rx="2" fill="#1E293B" stroke="#334155"/>
+      <circle cx="80" cy="52" r="17" fill="#334155" stroke="#F59E0B" stroke-width="2"/>
+      <g stroke="#F59E0B" stroke-width="1.8">
+        <line x1="80" y1="35" x2="80" y2="69"/>
+        <line x1="63" y1="52" x2="97" y2="52"/>
+        <line x1="68" y1="40" x2="92" y2="64"/>
+        <line x1="68" y1="64" x2="92" y2="40"/>
+      </g>
+      <circle cx="80" cy="52" r="6" fill="#CBD5E1"/>
+      <circle cx="80" cy="22" r="15" fill="#334155" stroke="#F59E0B" stroke-width="2"/>
+      <g stroke="#F59E0B" stroke-width="1.8">
+        <line x1="80" y1="7" x2="80" y2="37"/>
+        <line x1="65" y1="22" x2="95" y2="22"/>
+        <line x1="69" y1="11" x2="91" y2="33"/>
+        <line x1="69" y1="33" x2="91" y2="11"/>
+      </g>
+      <circle cx="80" cy="22" r="5" fill="#CBD5E1"/>
+      <path d="M10 37 L65 37" stroke="#E2B17F" stroke-width="2.5"/>
+      <path d="M96 37 Q 101 30 106 37 Q 111 44 116 37 Q 121 30 126 37 Q 131 44 136 37 Q 141 30 146 37 L154 37" stroke="#C89666" stroke-width="2.5" fill="none"/>
+      <rect x="108" y="12" width="46" height="13" rx="3" fill="#10B981"/>
+      <text x="131" y="21" fill="#FFFFFF" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">FLUTE ARCH</text>
+    </svg>`,
+
+    // 03: Starch Adhesive Application & Sandwiching
+    `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" rx="8" fill="#0D1B2A"/>
+      <line x1="10" y1="78" x2="150" y2="78" stroke="#1E3A5F" stroke-width="2"/>
+      <path d="M40 74 L44 58 L86 58 L90 74 Z" fill="#D97706" stroke="#F59E0B" stroke-width="1.5"/>
+      <rect x="46" y="62" width="38" height="8" fill="#FDE68A" opacity="0.6"/>
+      <circle cx="65" cy="46" r="16" fill="#334155" stroke="#D97706" stroke-width="2.5"/>
+      <circle cx="65" cy="46" r="5" fill="#64748B"/>
+      <path d="M10 32 Q 16 26 22 32 Q 28 38 34 32 Q 40 26 46 32 Q 52 38 58 32 Q 64 26 70 32 Q 76 38 82 32 Q 88 26 94 32 L102 32" stroke="#C89666" stroke-width="2" fill="none"/>
+      <circle cx="40" cy="26" r="2" fill="#F59E0B"/>
+      <circle cx="52" cy="38" r="2" fill="#F59E0B"/>
+      <circle cx="64" cy="26" r="2.2" fill="#F59E0B"/>
+      <circle cx="76" cy="38" r="2.2" fill="#F59E0B"/>
+      <circle cx="88" cy="26" r="2.2" fill="#F59E0B"/>
+      <path d="M60 12 Q 85 14 102 28" stroke="#E2B17F" stroke-width="2.5" fill="none"/>
+      <circle cx="116" cy="44" r="14" fill="#1E293B" stroke="#64748B" stroke-width="2"/>
+      <circle cx="116" cy="14" r="12" fill="#334155" stroke="#64748B" stroke-width="1.5"/>
+      <line x1="116" y1="28" x2="154" y2="28" stroke="#E2B17F" stroke-width="2.5"/>
+      <path d="M116 32 Q 120 30 124 32 Q 128 34 132 32 Q 136 30 140 32 Q 144 34 148 32 L154 32" stroke="#C89666" stroke-width="2" fill="none"/>
+      <rect x="10" y="12" width="38" height="13" rx="3" fill="#D97706"/>
+      <text x="29" y="21" fill="#FFFFFF" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">STARCH</text>
+    </svg>`,
+
+    // 04: Double-Backer Hot-Plate Curing
+    `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" rx="8" fill="#0D1B2A"/>
+      <line x1="10" y1="78" x2="150" y2="78" stroke="#1E3A5F" stroke-width="2"/>
+      <rect x="24" y="50" width="112" height="16" rx="2" fill="#1E293B" stroke="#EA580C" stroke-width="1.5"/>
+      <line x1="30" y1="58" x2="130" y2="58" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 3"/>
+      <rect x="10" y="43" width="140" height="6" fill="#E2B17F" stroke="#C89666" stroke-width="1"/>
+      <circle cx="42" cy="35" r="7" fill="#475569" stroke="#94A3B8" stroke-width="1"/>
+      <circle cx="62" cy="35" r="7" fill="#475569" stroke="#94A3B8" stroke-width="1"/>
+      <circle cx="82" cy="35" r="7" fill="#475569" stroke="#94A3B8" stroke-width="1"/>
+      <circle cx="102" cy="35" r="7" fill="#475569" stroke="#94A3B8" stroke-width="1"/>
+      <circle cx="122" cy="35" r="7" fill="#475569" stroke="#94A3B8" stroke-width="1"/>
+      <rect x="35" y="26" width="94" height="4" rx="1" fill="#334155"/>
+      <path d="M40 70 L40 74 M60 70 L60 74 M80 70 L80 74 M100 70 L100 74 M120 70 L120 74" stroke="#F59E0B" stroke-width="1.5"/>
+      <rect x="100" y="10" width="50" height="13" rx="3" fill="#EA580C"/>
+      <text x="125" y="19" fill="#FFFFFF" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">HOT CURING</text>
+    </svg>`,
+
+    // 05: CNC Rotary Creasing, Slotting & Jointing
+    `<svg viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="160" height="90" rx="8" fill="#0D1B2A"/>
+      <line x1="10" y1="78" x2="150" y2="78" stroke="#1E3A5F" stroke-width="2"/>
+      <rect x="10" y="46" width="65" height="6" fill="#E2B17F" stroke="#8C5E35" stroke-width="1"/>
+      <rect x="65" y="18" width="6" height="56" rx="1" fill="#64748B"/>
+      <circle cx="68" cy="34" r="12" fill="#94A3B8" stroke="#F1F5F9" stroke-width="1.5"/>
+      <circle cx="68" cy="34" r="3" fill="#0F172A"/>
+      <circle cx="68" cy="58" r="12" fill="#94A3B8" stroke="#F1F5F9" stroke-width="1.5"/>
+      <circle cx="68" cy="58" r="3" fill="#0F172A"/>
+      <circle cx="95" cy="38" r="10" fill="#CBD5E1" stroke="#64748B" stroke-width="1.5"/>
+      <circle cx="95" cy="56" r="10" fill="#CBD5E1" stroke="#64748B" stroke-width="1.5"/>
+      <polygon points="115,50 148,38 152,48 119,60" fill="#C89666" stroke="#8C5E35" stroke-width="1.5"/>
+      <line x1="132" y1="44" x2="136" y2="54" stroke="#4A2E13" stroke-width="1" stroke-dasharray="2 1"/>
+      <circle cx="75" cy="49" r="1.5" fill="#FDE047"/>
+      <circle cx="78" cy="46" r="1" fill="#FDE047"/>
+      <rect x="10" y="14" width="46" height="13" rx="3" fill="#3B82F6"/>
+      <text x="33" y="23" fill="#FFFFFF" font-size="6.5" font-family="sans-serif" font-weight="bold" text-anchor="middle">CNC SLITTING</text>
+    </svg>`
+  ];
+  return svgs[stepIdx] || svgs[0];
+}
+
+function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
+  const width = 560;
+
+  function buildWave(xStart, yCenter, amp, halfPitch, cycles) {
+    let d = `M ${xStart},${yCenter}`;
+    let glueFillets = "";
+    let curX = xStart;
+    for (let i = 0; i < cycles; i++) {
+      const topX = Number((curX + halfPitch / 2).toFixed(1));
+      const topY = Number((yCenter - amp).toFixed(1));
+      d += ` Q ${topX},${topY} ${curX + halfPitch},${yCenter}`;
+      glueFillets += `<ellipse cx="${topX}" cy="${topY}" rx="3.2" ry="1.2" fill="#D97706" opacity="0.85"/>`;
+      curX += halfPitch;
+
+      const botX = Number((curX + halfPitch / 2).toFixed(1));
+      const botY = Number((yCenter + amp).toFixed(1));
+      d += ` Q ${botX},${botY} ${curX + halfPitch},${yCenter}`;
+      glueFillets += `<ellipse cx="${botX}" cy="${botY}" rx="3.2" ry="1.2" fill="#D97706" opacity="0.85"/>`;
+      curX += halfPitch;
+    }
+    return { d, glueFillets, endX: curX };
+  }
+
+  const defs = `
+    <defs>
+      <!-- CAD Drafting Precision Grid -->
+      <pattern id="cadGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="0.75"/>
+      </pattern>
+      <!-- Authentic Virgin Kraft Board Gradient -->
+      <linearGradient id="kraftGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#D9A566"/>
+        <stop offset="50%" stop-color="#C69255"/>
+        <stop offset="100%" stop-color="#B07D42"/>
+      </linearGradient>
+      <!-- Center Partition Liner Gradient -->
+      <linearGradient id="centerLinerGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#C29158"/>
+        <stop offset="100%" stop-color="#A6733B"/>
+      </linearGradient>
+      <!-- Clay Gloss Coating (for Duplex) -->
+      <linearGradient id="glossGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="60%" stop-color="#F1F5F9"/>
+        <stop offset="100%" stop-color="#E2E8F0"/>
+      </linearGradient>
+      <!-- High Density Pulp Core (for Duplex) -->
+      <linearGradient id="pulpGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#64748B"/>
+        <stop offset="50%" stop-color="#475569"/>
+        <stop offset="100%" stop-color="#334155"/>
+      </linearGradient>
+      <!-- Structural Core Boundary Clipping -->
+      <clipPath id="honeycombCoreClip">
+        <rect x="48" y="46" width="488" height="96"/>
+      </clipPath>
+    </defs>
+  `;
+
+  function cadFrame(h, footnote) {
+    return `
+      <rect width="${width}" height="${h}" rx="8" fill="#070E18"/>
+      <rect width="${width}" height="${h}" rx="8" fill="url(#cadGrid)"/>
+      <!-- Corner Drafting Registration Marks -->
+      <path d="M 12 18 L 12 12 L 18 12" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/>
+      <path d="M 548 18 L 548 12 L 542 12" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/>
+      <path d="M 12 ${h - 18} L 12 ${h - 12} L 18 ${h - 12}" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/>
+      <path d="M 548 ${h - 18} L 548 ${h - 12} L 542 ${h - 12}" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/>
+      <!-- Engineering Scale & Spec Footnote -->
+      <text x="48" y="${h - 12}" fill="rgba(255,255,255,0.4)" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">${footnote}</text>
+      <text x="546" y="${h - 12}" fill="rgba(255,255,255,0.3)" font-size="7" font-family="'JetBrains Mono', monospace" font-weight="600" text-anchor="end">SCALE 1:1 · ISO 7263</text>
+    `;
+  }
+
+  function cadDimension(topY, botY, textStr) {
+    const midY = (topY + botY) / 2;
+    return `
+      <!-- Technical Dimension Rule -->
+      <line x1="16" y1="${topY}" x2="48" y2="${topY}" stroke="#38BDF8" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+      <line x1="16" y1="${botY}" x2="48" y2="${botY}" stroke="#38BDF8" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.7"/>
+      <line x1="22" y1="${topY}" x2="22" y2="${botY}" stroke="#38BDF8" stroke-width="1.2"/>
+      <polygon points="22,${topY} 19,${topY + 6} 25,${topY + 6}" fill="#38BDF8"/>
+      <polygon points="22,${botY} 19,${botY - 6} 25,${botY - 6}" fill="#38BDF8"/>
+      <rect x="4" y="${midY - 9}" width="36" height="18" rx="3" fill="#070E18" stroke="#38BDF8" stroke-width="1"/>
+      <text x="22" y="${midY + 3.5}" fill="#38BDF8" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700" text-anchor="middle">${textStr}</text>
+    `;
+  }
+
+  if (modelKey === 'honeycomb') {
+    const height = 196;
+    const dy = 24;
+    const dx = 13.86;
+    const s = 27.71;
+    const colSpacing = 2 * (s + dx); // 83.14
+    const startY = 46;
+    const rows = 3;
+    let cells = '';
+
+    for (let r = 0; r < rows; r++) {
+      const y = startY + (r + 1) * dy;
+      const isOdd = (r % 2 === 1);
+      const xOffset = isOdd ? (s + dx) : 0;
+      for (let cx = 35 + xOffset; cx <= 555; cx += colSpacing) {
+        const v0 = `${(cx - s/2).toFixed(1)},${(y - dy).toFixed(1)}`;
+        const v1 = `${(cx + s/2).toFixed(1)},${(y - dy).toFixed(1)}`;
+        const v2 = `${(cx + s/2 + dx).toFixed(1)},${y.toFixed(1)}`;
+        const v3 = `${(cx + s/2).toFixed(1)},${(y + dy).toFixed(1)}`;
+        const v4 = `${(cx - s/2).toFixed(1)},${(y + dy).toFixed(1)}`;
+        const v5 = `${(cx - s/2 - dx).toFixed(1)},${y.toFixed(1)}`;
+        cells += `<polygon points="${v0} ${v1} ${v2} ${v3} ${v4} ${v5}"/>`;
+      }
+    }
+
+    return {
+      caliper: '25mm Core Caliper',
+      svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${defs}
+        ${cadFrame(height, 'STRUCTURAL HONEYCOMB CELL MATRIX · 1,000+ KG COMPRESSION')}
+        ${cadDimension(20, 168, '25mm')}
+
+        <!-- Top Kraft Skin (Heavy 300-400 GSM) -->
+        <g class="svg-board-layer" data-layer-idx="0">
+          <rect x="48" y="20" width="488" height="22" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="34.5" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER TOP FACING KRAFT SKIN (300–400 GSM)</text>
+        </g>
+
+        <!-- Hot Melt Adhesive Line -->
+        <line x1="48" y1="44" x2="536" y2="44" stroke="#D97706" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+        <!-- Hexagonal Honeycomb Matrix -->
+        <g class="svg-board-layer" data-layer-idx="2">
+          <g clip-path="url(#honeycombCoreClip)" stroke="#D97706" stroke-width="1.6" fill="rgba(217,119,6,0.12)">
+            ${cells}
+          </g>
+        </g>
+
+        <!-- Hot Melt Adhesive Bottom -->
+        <line x1="48" y1="144" x2="536" y2="144" stroke="#D97706" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+        <!-- Bottom Kraft Skin (Heavy 300-400 GSM) -->
+        <g class="svg-board-layer" data-layer-idx="4">
+          <rect x="48" y="146" width="488" height="22" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="160.5" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">BOTTOM HEAVY-DUTY KRAFT SKIN (300–400 GSM)</text>
+        </g>
+      </svg>`
+    };
+  }
+
+  if (modelKey === 'duplex') {
+    const height = 185;
+    return {
+      caliper: '230–450 GSM Heavy Caliper',
+      svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${defs}
+        ${cadFrame(height, 'MULTI-PLY COATED PAPERBOARD · DOUBLE CLAY COAT (300+ DPI)')}
+        ${cadDimension(24, 146, '450 GSM')}
+
+        <!-- Layer 1: Double Clay Coat -->
+        <g class="svg-board-layer" data-layer-idx="0">
+          <rect x="48" y="24" width="488" height="20" rx="2" fill="url(#glossGrad)" stroke="#94A3B8" stroke-width="1.2"/>
+          <line x1="48" y1="30" x2="536" y2="30" stroke="#FFFFFF" stroke-width="1.5"/>
+          <text x="56" y="37.5" fill="#1E293B" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700">DOUBLE CLAY COATED TOP SURFACE (300+ DPI GLOSS PRINT)</text>
+        </g>
+
+        <!-- Layer 2: Bleached Chemical Pulp Sub-layer -->
+        <g class="svg-board-layer" data-layer-idx="1">
+          <rect x="48" y="46" width="488" height="14" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1"/>
+          <text x="56" y="56" fill="#475569" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">BLEACHED VIRGIN CHEMICAL UNDERLAYER (BLOCKS CORE SHOW-THROUGH)</text>
+        </g>
+
+        <!-- Layer 3: High Density Mechanical Pulp Core -->
+        <g class="svg-board-layer" data-layer-idx="2">
+          <rect x="48" y="62" width="488" height="62" fill="url(#pulpGrad)" stroke="#1E293B" stroke-width="1.2"/>
+          <g stroke="#94A3B8" stroke-width="0.8" opacity="0.3">
+            <line x1="60" y1="75" x2="100" y2="75"/><line x1="140" y1="90" x2="200" y2="90"/>
+            <line x1="240" y1="80" x2="310" y2="80"/><line x1="360" y1="100" x2="430" y2="100"/>
+            <line x1="460" y1="85" x2="510" y2="85"/>
+          </g>
+          <text x="56" y="96" fill="#F8FAFC" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">HIGH-DENSITY MULTI-PLY RECYCLED MECHANICAL FIBER CORE</text>
+        </g>
+
+        <!-- Layer 4: Kraft / Grey Backing -->
+        <g class="svg-board-layer" data-layer-idx="3">
+          <rect x="48" y="126" width="488" height="20" rx="2" fill="#CBD5E1" stroke="#94A3B8" stroke-width="1.2"/>
+          <text x="56" y="139" fill="#1E293B" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700">BOTTOM KRAFT / GREY BACKING (PHARMA & FOOD SAFE LINER)</text>
+        </g>
+      </svg>`
+    };
+  }
+
+  // Corrugated Board (Single, Double, or Triple Wall)
+  const is3Ply = (plyKey === '3ply') || (modelKey === 'printed' && !plyKey) || (modelKey === 'inner') || (layers && layers.length <= 5 && plyKey !== '7ply' && plyKey !== '5ply');
+  const is7Ply = (plyKey === '7ply');
+
+  if (is3Ply) {
+    const height = 165;
+    const wave = buildWave(50, 66, 24, 20, 12);
+    return {
+      caliper: modelKey === 'inner' ? '~1.8mm Micro-Flute' : '~3.2mm Single Wall',
+      svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${defs}
+        ${cadFrame(height, 'SINGLE-WALL PROFILE: 140–200 GSM VIRGIN KRAFT + SINUSOIDAL ARCH + 120–180 GSM INNER')}
+        ${cadDimension(22, 110, '~3.2mm')}
+
+        <!-- Top Facing Liner -->
+        <g class="svg-board-layer" data-layer-idx="0">
+          <rect x="48" y="22" width="488" height="20" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="35" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER TOP FACING LINER (140–200 GSM KRAFT / WHITE)</text>
+        </g>
+
+        <!-- Flute 1 Wave -->
+        <g class="svg-board-layer" data-layer-idx="2">
+          <path d="${wave.d}" stroke="#C89666" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+          ${wave.glueFillets}
+        </g>
+
+        <!-- Bottom Inner Liner -->
+        <g class="svg-board-layer" data-layer-idx="4">
+          <rect x="48" y="90" width="488" height="20" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="103" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">INNER CONTACT LINER (120–180 GSM KRAFT)</text>
+        </g>
+      </svg>`
+    };
+  }
+
+  if (is7Ply) {
+    const height = 232;
+    const wave1 = buildWave(50, 52, 16, 20, 12);
+    const wave2 = buildWave(50, 96, 14, 12, 20);
+    const wave3 = buildWave(50, 138, 14, 15, 16);
+    return {
+      caliper: '~11.5mm Heavy Export Caliper',
+      svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${defs}
+        ${cadFrame(height, 'TRIPLE-WALL EXPORT PROFILE · C-FLUTE (4.0mm) + B-FLUTE (3.0mm) + SUPPORT (3.5mm)')}
+        ${cadDimension(18, 170, '11.5mm')}
+
+        <!-- Top Liner -->
+        <g class="svg-board-layer" data-layer-idx="0">
+          <rect x="48" y="18" width="488" height="18" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="30" fill="rgba(255,255,255,0.95)" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER HEAVY KRAFT LINER (250–350 GSM / 35+ BF)</text>
+        </g>
+
+        <!-- Flute 1: C-Flute (Broad 4.0mm) -->
+        <g class="svg-board-layer" data-layer-idx="2">
+          <path d="${wave1.d}" stroke="#C89666" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+          ${wave1.glueFillets}
+        </g>
+
+        <!-- Center Liner 1 -->
+        <g class="svg-board-layer" data-layer-idx="4">
+          <rect x="48" y="68" width="488" height="14" rx="1.5" fill="url(#centerLinerGrad)" stroke="#8C5E35" stroke-width="1"/>
+          <text x="56" y="78" fill="rgba(255,255,255,0.9)" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">CENTER REINFORCING LINER 1 (200 GSM PARTITION)</text>
+        </g>
+
+        <!-- Flute 2: B-Flute (Narrow 3.0mm) -->
+        <g class="svg-board-layer" data-layer-idx="6">
+          <path d="${wave2.d}" stroke="#D4A373" stroke-width="3.0" fill="none" stroke-linecap="round"/>
+          ${wave2.glueFillets}
+        </g>
+
+        <!-- Center Liner 2 -->
+        <g class="svg-board-layer" data-layer-idx="8">
+          <rect x="48" y="110" width="488" height="14" rx="1.5" fill="url(#centerLinerGrad)" stroke="#8C5E35" stroke-width="1"/>
+          <text x="56" y="120" fill="rgba(255,255,255,0.9)" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">CENTER REINFORCING LINER 2 (200 GSM STRUCTURAL BRIDGE)</text>
+        </g>
+
+        <!-- Flute 3: Support Flute (3.5mm) -->
+        <g class="svg-board-layer" data-layer-idx="10">
+          <path d="${wave3.d}" stroke="#C89666" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+          ${wave3.glueFillets}
+        </g>
+
+        <!-- Bottom Liner -->
+        <g class="svg-board-layer" data-layer-idx="12">
+          <rect x="48" y="152" width="488" height="18" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+          <text x="56" y="164" fill="rgba(255,255,255,0.95)" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700">BOTTOM HEAVY CONTAINMENT LINER (200–280 GSM)</text>
+        </g>
+      </svg>`
+    };
+  }
+
+  // Default: 5 PLY (Double Wall - BC Flute)
+  const height = 190;
+  const wave1 = buildWave(50, 58, 18, 20, 12);
+  const wave2 = buildWave(50, 108, 16, 12, 20);
+  return {
+    caliper: '~7.2mm Board Caliper (BC Flute)',
+    svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+      ${defs}
+      ${cadFrame(height, 'DOUBLE-WALL BC COMBINATION PROFILE · C-FLUTE (4.0mm) + B-FLUTE (3.0mm) · 3X COMPRESSION')}
+      ${cadDimension(20, 144, '~7.2mm')}
+
+      <!-- Layer 1: Outer Top Facing Liner -->
+      <g class="svg-board-layer" data-layer-idx="0">
+        <rect x="48" y="20" width="488" height="20" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+        <text x="56" y="33" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER TOP FACING LINER (180–300 GSM / 24–35 BF)</text>
+      </g>
+
+      <!-- Fluting 1: Broad C-Flute (4.0mm Wave) -->
+      <g class="svg-board-layer" data-layer-idx="2">
+        <path d="${wave1.d}" stroke="#C89666" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        ${wave1.glueFillets}
+      </g>
+
+      <!-- Layer 3: Center Reinforcing Linerboard -->
+      <g class="svg-board-layer" data-layer-idx="4">
+        <rect x="48" y="76" width="488" height="16" rx="1.5" fill="url(#centerLinerGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+        <text x="56" y="87" fill="rgba(255,255,255,0.9)" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="600">CENTER REINFORCING LINERBOARD (150–200 GSM I-BEAM SPINE)</text>
+      </g>
+
+      <!-- Fluting 2: Narrow B-Flute (3.0mm Wave) -->
+      <g class="svg-board-layer" data-layer-idx="6">
+        <path d="${wave2.d}" stroke="#D4A373" stroke-width="3.0" fill="none" stroke-linecap="round"/>
+        ${wave2.glueFillets}
+      </g>
+
+      <!-- Layer 5: Bottom Inner Liner -->
+      <g class="svg-board-layer" data-layer-idx="8">
+        <rect x="48" y="124" width="488" height="20" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
+        <text x="56" y="137" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">BOTTOM INNER LINER (140–220 GSM INTERIOR WALL)</text>
+      </g>
+    </svg>`
+  };
+}
+
+function highlightLayer(idx) {
+  const canvas = document.getElementById('boardDiagramCanvas');
+  if (canvas) {
+    canvas.classList.add('has-active');
+  }
+
+  document.querySelectorAll('.svg-board-layer').forEach(el => {
+    const isMatch = (el.getAttribute('data-layer-idx') === String(idx));
+    if (isMatch) {
+      el.classList.add('active');
+      el.style.opacity = '1';
+      // Highlight rects
+      el.querySelectorAll('rect').forEach(r => {
+        if (!r.dataset.origStroke) r.dataset.origStroke = r.getAttribute('stroke') || '';
+        if (!r.dataset.origWidth) r.dataset.origWidth = r.getAttribute('stroke-width') || '';
+        r.setAttribute('stroke', '#38BDF8');
+        r.setAttribute('stroke-width', '2.5');
+      });
+      // Highlight wave paths
+      el.querySelectorAll('path').forEach(p => {
+        if (!p.dataset.origStroke) p.dataset.origStroke = p.getAttribute('stroke') || '';
+        if (!p.dataset.origWidth) p.dataset.origWidth = p.getAttribute('stroke-width') || '';
+        p.setAttribute('stroke', '#38BDF8');
+        p.setAttribute('stroke-width', '4.2');
+      });
+      // Highlight text
+      el.querySelectorAll('text').forEach(t => {
+        if (!t.dataset.origFill) t.dataset.origFill = t.getAttribute('fill') || '';
+        t.setAttribute('fill', '#38BDF8');
+      });
+      // Highlight honeycomb polygons
+      el.querySelectorAll('polygon').forEach(poly => {
+        if (!poly.dataset.origStroke) poly.dataset.origStroke = poly.getAttribute('stroke') || '';
+        poly.setAttribute('stroke', '#38BDF8');
+        poly.setAttribute('stroke-width', '2.5');
+      });
+      // Highlight glue fillets
+      el.querySelectorAll('ellipse').forEach(e => {
+        if (!e.dataset.origFill) e.dataset.origFill = e.getAttribute('fill') || '';
+        e.setAttribute('fill', '#38BDF8');
+      });
+    } else {
+      el.classList.remove('active');
+      el.style.opacity = '0.25';
+      resetSvgLayerElements(el);
+    }
+  });
+
+  document.querySelectorAll('.layer-card').forEach(el => {
+    if (el.getAttribute('data-layer-idx') === String(idx)) {
+      el.classList.add('highlighted');
+    } else {
+      el.classList.remove('highlighted');
+    }
+  });
+}
+
+function resetSvgLayerElements(el) {
+  el.querySelectorAll('rect').forEach(r => {
+    if (r.dataset.origStroke !== undefined) r.setAttribute('stroke', r.dataset.origStroke);
+    if (r.dataset.origWidth !== undefined) r.setAttribute('stroke-width', r.dataset.origWidth);
+  });
+  el.querySelectorAll('path').forEach(p => {
+    if (p.dataset.origStroke !== undefined) p.setAttribute('stroke', p.dataset.origStroke);
+    if (p.dataset.origWidth !== undefined) p.setAttribute('stroke-width', p.dataset.origWidth);
+  });
+  el.querySelectorAll('text').forEach(t => {
+    if (t.dataset.origFill !== undefined) t.setAttribute('fill', t.dataset.origFill);
+  });
+  el.querySelectorAll('polygon').forEach(poly => {
+    if (poly.dataset.origStroke !== undefined) poly.setAttribute('stroke', poly.dataset.origStroke);
+  });
+  el.querySelectorAll('ellipse').forEach(e => {
+    if (e.dataset.origFill !== undefined) e.setAttribute('fill', e.dataset.origFill);
+  });
+}
+
+function clearLayerHighlight() {
+  const canvas = document.getElementById('boardDiagramCanvas');
+  if (canvas) {
+    canvas.classList.remove('has-active');
+  }
+  document.querySelectorAll('.svg-board-layer').forEach(el => {
+    el.classList.remove('active');
+    el.style.opacity = '1';
+    resetSvgLayerElements(el);
+  });
+  document.querySelectorAll('.layer-card').forEach(el => el.classList.remove('highlighted'));
+}
+
+function renderLayers() {
+  const p = productsData[currentModelKey];
+  if (!p) return;
+
+  const switcher = document.getElementById('specsPlySwitcher');
+  const container = document.getElementById('specsLayersContainer');
+  container.innerHTML = '';
+
+  let layers = [];
+
+  if (p.plyOptions) {
+    switcher.style.display = 'flex';
+    switcher.innerHTML = '<span class="ply-switcher-label">Select Construction:</span>';
+    
+    Object.keys(p.plyOptions).forEach(k => {
+      const opt = p.plyOptions[k];
+      const btn = document.createElement('button');
+      btn.className = `ply-btn ${k === currentPlyKey ? 'active' : ''}`;
+      btn.textContent = opt.name;
+      btn.onclick = () => selectPly(k);
+      switcher.appendChild(btn);
+    });
+
+    const activeOpt = p.plyOptions[currentPlyKey] || p.plyOptions['5ply'];
+    layers = activeOpt.layers;
+
+    const capBanner = document.createElement('div');
+    capBanner.style.cssText = 'font-size:0.86rem;font-weight:700;color:var(--navy);background:rgba(201,162,39,0.1);padding:10px 18px;border-radius:8px;margin-bottom:14px;border:1px solid rgba(201,162,39,0.3);display:flex;align-items:center;gap:8px;';
+    capBanner.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> <strong>${activeOpt.name}:</strong> ${activeOpt.capacity}`;
+    container.appendChild(capBanner);
+  } else {
+    switcher.style.display = 'none';
+    layers = p.layers || [];
+  }
+
+  // Generate and render Architectural Cross-Section SVG Diagram
+  const boardData = generateBoardCrossSectionSvg(currentModelKey, currentPlyKey, layers);
+  const caliperBadge = document.getElementById('boardCaliperBadge');
+  if (caliperBadge) caliperBadge.textContent = boardData.caliper;
+  const diagramCanvas = document.getElementById('boardDiagramCanvas');
+  if (diagramCanvas) {
+    diagramCanvas.innerHTML = boardData.svg;
+    // Bind hover on SVG elements
+    diagramCanvas.querySelectorAll('.svg-board-layer').forEach(el => {
+      const idx = el.getAttribute('data-layer-idx');
+      el.addEventListener('mouseenter', () => highlightLayer(idx));
+      el.addEventListener('mouseleave', clearLayerHighlight);
+      el.addEventListener('click', () => {
+        highlightLayer(idx);
+        const targetCard = document.querySelector(`.layer-card[data-layer-idx="${idx}"]`);
+        if (targetCard) targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  }
+
+  // Render layer cards
+  layers.forEach((layer, idx) => {
+    if (layer.type === 'adhesive') {
+      const adh = document.createElement('div');
+      adh.className = 'layer-adhesive-badge';
+      adh.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg> ${layer.text}`;
+      container.appendChild(adh);
+    } else {
+      const card = document.createElement('div');
+      let cardClass = 'layer-card';
+      let badgeClass = 'layer-badge';
+      let badgeText = 'Linerboard';
+
+      if (layer.type === 'flute') {
+        cardClass += ' layer-card--flute';
+        badgeClass += ' layer-badge--flute';
+        badgeText = 'Fluting Arch';
+      } else if (layer.type === 'honeycomb') {
+        cardClass += ' layer-card--honeycomb';
+        badgeClass += ' layer-badge--honeycomb';
+        badgeText = 'Honeycomb Core';
+      } else {
+        cardClass += ' layer-card--liner';
+        badgeClass += ' layer-badge--liner';
+        badgeText = 'Linerboard';
+      }
+
+      card.className = cardClass;
+      card.setAttribute('data-layer-idx', idx);
+      card.innerHTML = `
+        <div class="layer-header-row">
+          <div class="layer-name-wrap">
+            <span class="${badgeClass}">${badgeText}</span>
+            <span class="layer-title">${layer.role}</span>
+          </div>
+          <span class="layer-spec-pill">${layer.spec}</span>
+        </div>
+        <div class="layer-strength">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          <div><strong>Structural Strength Contribution:</strong> ${layer.strength}</div>
+        </div>
+      `;
+
+      card.addEventListener('mouseenter', () => highlightLayer(idx));
+      card.addEventListener('mouseleave', clearLayerHighlight);
+
+      container.appendChild(card);
+    }
+  });
+}
+
+function selectMfgStep(stepIdx) {
+  document.querySelectorAll('.mfg-station-node').forEach((node, idx) => {
+    node.classList.toggle('active', idx === stepIdx);
+  });
+  document.querySelectorAll('.mfg-step-card-with-thumb').forEach((card, idx) => {
+    card.classList.toggle('active', idx === stepIdx);
+  });
+  const targetCard = document.getElementById(`mfg-step-${stepIdx}`);
+  if (targetCard) targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderMfgSteps() {
+  const p = productsData[currentModelKey];
+  if (!p) return;
+  const pipeline = document.getElementById('specsMfgPipeline');
+  const container = document.getElementById('specsMfgStepsContainer');
+  if (pipeline) pipeline.innerHTML = '';
+  if (container) container.innerHTML = '';
+
+  const steps = p.mfgSteps || [];
+
+  // 1. Render Panoramic Pipeline Track
+  steps.forEach((step, idx) => {
+    if (pipeline) {
+      const node = document.createElement('div');
+      node.className = `mfg-station-node ${idx === 0 ? 'active' : ''}`;
+      node.setAttribute('data-step-idx', idx);
+      node.innerHTML = `
+        <span class="mfg-station-badge">STAGE ${step.step}</span>
+        <div class="mfg-station-illustration">
+          ${getMachineSvg(idx)}
+        </div>
+        <div class="mfg-station-name">${step.title}</div>
+        <div class="mfg-station-tech">${step.tech}</div>
+      `;
+      node.onclick = () => selectMfgStep(idx);
+      pipeline.appendChild(node);
+    }
+
+    // 2. Render Detailed Machine Cards with Vignette Thumbnails
+    if (container) {
+      const card = document.createElement('div');
+      card.className = `mfg-step-card-with-thumb ${idx === 0 ? 'active' : ''}`;
+      card.id = `mfg-step-${idx}`;
+      card.innerHTML = `
+        <div class="mfg-step-thumb">
+          ${getMachineSvg(idx)}
+        </div>
+        <div class="mfg-step-num">${step.step}</div>
+        <div class="mfg-step-content">
+          <div class="mfg-step-title-wrap">
+            <span class="mfg-step-title">${step.title}</span>
+            <span class="mfg-step-badge">${step.tech}</span>
+          </div>
+          <p class="mfg-step-desc">${step.desc}</p>
+        </div>
+      `;
+      card.onclick = () => selectMfgStep(idx);
+      container.appendChild(card);
+    }
+  });
+}
+
+function renderSpecsPage() {
+  const p = productsData[currentModelKey];
+  if (!p) return;
+
+  document.title = `${p.name} Specifications | Shree Packaging`;
+  document.getElementById('specsProductImg').src = p.img;
+  document.getElementById('specsProductImg').alt = p.name;
+  document.getElementById('specsProductTag').textContent = p.tag;
+  document.getElementById('specsProductTitle').textContent = p.name;
+  const breadcrumbProduct = document.getElementById('breadcrumbProductTitle');
+  if (breadcrumbProduct) breadcrumbProduct.textContent = p.name;
+  document.getElementById('specsProductDesc').textContent = p.desc;
+
+  // Render Highlights
+  const hlWrap = document.getElementById('specsHighlightChips');
+  hlWrap.innerHTML = '';
+  (p.highlights || []).forEach(hl => {
+    const chip = document.createElement('div');
+    chip.className = 'specs-hl-chip';
+    chip.innerHTML = `
+      <span class="specs-hl-label">${hl.label}</span>
+      <strong class="specs-hl-val">${hl.val}</strong>
+    `;
+    hlWrap.appendChild(chip);
+  });
+
+  // Action Buttons
+  document.getElementById('specsQuoteBtn').href = `contact?product=${encodeURIComponent(p.name)}`;
+  document.getElementById('specsSampleBtn').href = `contact?intent=sample&product=${encodeURIComponent(p.name)}`;
+  document.getElementById('specsCompareLink').href = `compare?p1=${encodeURIComponent(p.id)}`;
+
+  // Render Layers & Mfg
+  renderLayers();
+  renderMfgSteps();
+
+  // Render Engineering Table
+  const tbody = document.getElementById('specsTableBody');
+  tbody.innerHTML = '';
+  Object.entries(p.specs).forEach(([k, v]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<th>${k}</th><td>${v}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Render Applications
+  const appsWrap = document.getElementById('specsAppsContainer');
+  appsWrap.innerHTML = '';
+  p.applications.forEach(app => {
+    const span = document.createElement('span');
+    span.className = 'app-badge';
+    span.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> ${app}`;
+    appsWrap.appendChild(span);
+  });
+
+  // Update Pagination
+  const idx = productKeys.indexOf(currentModelKey);
+  const prevIdx = (idx - 1 + productKeys.length) % productKeys.length;
+  const nextIdx = (idx + 1) % productKeys.length;
+
+  document.getElementById('prevProductName').textContent = productsData[productKeys[prevIdx]].name;
+  document.getElementById('nextProductName').textContent = productsData[productKeys[nextIdx]].name;
+}
+
+function navigateModel(direction, e) {
+  e.preventDefault();
+  const idx = productKeys.indexOf(currentModelKey);
+  const newIdx = (idx + direction + productKeys.length) % productKeys.length;
+  switchSpecsModel(productKeys[newIdx]);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  currentModelKey = getUrlProduct();
+  document.getElementById('specsModelSelect').value = currentModelKey;
+  document.getElementById('backToProductsBtn').href = `products#${currentModelKey}`;
+  renderSpecsPage();
+});
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  const btt = document.getElementById('backToTop');
+  if (btt) {
+    btt.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    btt.style.alignItems = 'center';
+    btt.style.justifyContent = 'center';
+  }
+});
+const hamburger = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+if (hamburger && nav) {
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+}
+</script>
+</body>
+</html>
