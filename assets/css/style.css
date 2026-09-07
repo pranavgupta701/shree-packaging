@@ -316,9 +316,12 @@ img { max-width: 100%; height: auto; }
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   font-size: 0.90rem;
   line-height: 1.55;
+}
+.footer__contact-item:last-child {
+  margin-bottom: 0;
 }
 .footer__contact-item:first-child {
   align-items: flex-start;
