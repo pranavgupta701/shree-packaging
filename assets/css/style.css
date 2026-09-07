@@ -275,9 +275,24 @@ img { max-width: 100%; height: auto; }
 .footer { background: #08111C; color: rgba(255,255,255,0.75); padding: 80px 0 0; }
 .footer__grid { display: grid; grid-template-columns: 1.3fr 0.85fr 0.85fr 1.45fr; gap: 36px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
 .footer__logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-.footer__logo img { height: 44px; width: auto; display: block; }
-.footer__about { font-size: 0.88rem; line-height: 1.75; }
-.footer__social { display: flex; gap: 12px; margin-top: 24px; }
+.footer__about { font-size: 0.88rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 14px; }
+.footer__badges { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.footer__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  padding: 5px 11px;
+  border-radius: 6px;
+  width: fit-content;
+  letter-spacing: 0.02em;
+}
+.footer__badge svg { flex-shrink: 0; }
+.footer__social { display: flex; gap: 12px; margin-top: 0; }
 .social-link {
   width: 44px;
   height: 44px;
