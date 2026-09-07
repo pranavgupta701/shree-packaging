@@ -639,7 +639,10 @@
         <h4 class="footer__heading">Contact</h4>
         <div class="footer__contact-item">
           <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-          <span><strong>Vansh Traders</strong><br>Plot no. 7//22/2, Behind Indian Oil Petrol Pump, Aghwanpur, Palwal – 121102, Haryana</span>
+          <div>
+            <strong class="footer__contact-address-name">Vansh Traders</strong>
+            <span class="footer__contact-address-body">Plot no. 7//22/2, Behind Indian Oil Petrol Pump, Aghwanpur, Palwal – 121102, Haryana</span>
+          </div>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
@@ -691,7 +694,7 @@ const productsData = {
     specs: {
       'Board Construction': '3 PLY (Single Wall), 5 PLY (Double Wall), 7 PLY (Triple Wall)',
       'Fluting Profiles': 'Narrow Flute (B: 3mm), Broad Flute (C: 4mm), Micro (E: 1.5mm), Multi-Wall (BC / BB)',
-      'Paper Grammage (GSM)': '120 GSM to 350 GSM Virgin Kraft & High-Performance Semi-Kraft',
+      'Paper Grammage (GSM)': '100 GSM to 350 GSM Virgin Kraft & High-Performance Semi-Kraft',
       'Burst Factor (BF)': '16 BF, 18 BF, 22 BF, 28 BF, up to 35+ BF Range',
       'Bursting Strength': '8.0 to 22.5 kg/cm² (Pneumatic In-House Lab Verified)',
       'Stacking / Load Capacity': 'Up to 500+ kg static warehouse stack load',
@@ -708,7 +711,7 @@ const productsData = {
           { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
           { type: 'flute', role: 'Fluted Arch Medium', spec: 'Narrow B-Flute (3mm) or Broad C-Flute (4mm)', strength: 'Continuous sinusoidal wave arches act like miniature architectural pillars, bearing vertical stacking compression.' },
           { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
-          { type: 'liner', role: 'Inner Contact Liner', spec: 'Semi-Kraft / Kraft (120–180 GSM)', strength: 'Smooth, non-abrasive interior containment wall preventing internal product puncture and wear.' }
+          { type: 'liner', role: 'Inner Contact Liner', spec: 'Semi-Kraft / Kraft (100–180 GSM)', strength: 'Smooth, non-abrasive interior containment wall preventing internal product puncture and wear.' }
         ]
       },
       '5ply': {
@@ -881,7 +884,7 @@ const productsData = {
     specs: {
       'Board Construction': 'Micro-Flute (E / F Flute) or High-Density Solid Kraft Board',
       'Die-Cutting Tolerance': 'Precision CNC Automated Die-Cutting with Self-Locking Flaps',
-      'Paper Grammage (GSM)': '120 GSM to 280 GSM',
+      'Paper Grammage (GSM)': '100 GSM to 280 GSM',
       'Burst Factor (BF)': '16 BF to 26 BF',
       'Internal Partitions': 'Bespoke interlocked cell dividers (bottle/jar matrices)',
       'Closure Profiles': 'Tuck-in top, crash-lock base, envelope bottom',
@@ -890,11 +893,11 @@ const productsData = {
     },
     applications: ['Pharmaceutical Vials & Ampoules', 'Cosmetic Jars & Perfumes', 'Precision Metal Components', 'Electrical Sensors & Relays', 'Glassware Separation Grids'],
     layers: [
-      { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Virgin Kraft or White Top (120–220 GSM)', strength: 'Smooth, fiber-tight surface preventing particulate dust from shedding onto sensitive goods.' },
+      { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Virgin Kraft or White Top (100–220 GSM)', strength: 'Smooth, fiber-tight surface preventing particulate dust from shedding onto sensitive goods.' },
       { type: 'adhesive', text: 'Modified Starch Adhesive Line' },
       { type: 'flute', role: 'Micro-Flute Shock Dampener', spec: 'E-Flute (1.5mm) or F-Flute (1.0mm) Micro Arches', strength: 'Ultra-thin, high-density flute arches provide exceptional edge crush rigidity and snug vibration dampening.' },
       { type: 'adhesive', text: 'Modified Starch Adhesive Line' },
-      { type: 'liner', role: 'Inner Contact Liner', spec: 'Smooth Non-Abrasive Kraft (120–200 GSM)', strength: 'Soft inner contact face protecting glass bottles, polished chrome, or pharma vials from scuffing.' }
+      { type: 'liner', role: 'Inner Contact Liner', spec: 'Smooth Non-Abrasive Kraft (100–200 GSM)', strength: 'Soft inner contact face protecting glass bottles, polished chrome, or pharma vials from scuffing.' }
     ],
     mfgSteps: [
       { step: '01', title: 'Micro-Flute Board Corrugation', tech: 'Precision Micro-Corrugator', desc: 'High-density E/F flute board is manufactured with flat surface characteristics and minimal board caliper for compact packaging.' },
@@ -1317,7 +1320,7 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
       caliper: modelKey === 'inner' ? '~1.8mm Micro-Flute' : '~3.2mm Single Wall',
       svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
         ${defs}
-        ${cadFrame(height, 'SINGLE-WALL PROFILE: 140–200 GSM VIRGIN KRAFT + SINUSOIDAL ARCH + 120–180 GSM INNER')}
+        ${cadFrame(height, 'SINGLE-WALL PROFILE: 140–200 GSM VIRGIN KRAFT + SINUSOIDAL ARCH + 100–180 GSM INNER')}
         ${cadDimension(22, 110, '~3.2mm')}
 
         <!-- Top Facing Liner -->
@@ -1335,7 +1338,7 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
         <!-- Bottom Inner Liner -->
         <g class="svg-board-layer" data-layer-idx="4">
           <rect x="48" y="90" width="488" height="20" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35" stroke-width="1.2"/>
-          <text x="56" y="103" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">INNER CONTACT LINER (120–180 GSM KRAFT)</text>
+          <text x="56" y="103" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">INNER CONTACT LINER (100–180 GSM KRAFT)</text>
         </g>
       </svg>`
     };
