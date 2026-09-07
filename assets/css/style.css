@@ -298,10 +298,9 @@ img { max-width: 100%; height: auto; }
 }
 .social-link:hover svg { transform: scale(1.1); }
 .social-link--email:hover {
-  background: #EA4335 !important;
-  color: #FFFFFF !important;
+  background: #FFFFFF !important;
   border-color: #EA4335 !important;
-  box-shadow: 0 8px 24px rgba(234,67,53,0.45) !important;
+  box-shadow: 0 8px 24px rgba(234,67,53,0.35) !important;
 }
 .social-link--call:hover {
   background: #2563EB !important;
