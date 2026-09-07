@@ -293,10 +293,14 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .social-link svg { width: 20px; height: 20px; transition: transform 0.3s ease; pointer-events: none; }
+.social-link .social-icon-hover { display: none; }
+.social-link .social-icon-default { display: block; }
 .social-link:hover {
   transform: translateY(-3px);
 }
 .social-link:hover svg { transform: scale(1.1); }
+.social-link:hover .social-icon-default { display: none; }
+.social-link:hover .social-icon-hover { display: block; }
 .social-link--email:hover {
   background: #FFFFFF !important;
   border-color: #EA4335 !important;
