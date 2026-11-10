@@ -348,7 +348,7 @@
     <div class="specs-model-selector-wrap">
       <label for="specsModelSelect" class="specs-model-label">Select Product:</label>
       <select id="specsModelSelect" class="specs-model-select" onchange="switchSpecsModel(this.value)">
-        <option value="master">Master Cartons (3/5/7 PLY)</option>
+        <option value="master">Master Cartons (3/5/7/9 PLY)</option>
         <option value="printed">Printed Master Cartons</option>
         <option value="honeycomb">Honeycomb Cartons</option>
         <option value="sheets">Corrugated Sheets &amp; Rolls</option>
@@ -395,7 +395,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
             <div>
               <span class="specs-quick-lbl">Standard Fluting</span>
-              <strong class="specs-quick-val">Narrow (B), Broad (C), Micro (E), Multi (BC)</strong>
+              <strong class="specs-quick-val">Narrow (B), Broad (A), Micro (E), Multi (AB)</strong>
             </div>
           </div>
           <div class="specs-quick-item">
@@ -475,7 +475,7 @@
 
           <!-- Detailed Layer Spec Cards Column -->
           <div class="specs-layers-col">
-            <!-- Interactive 3-PLY / 5-PLY / 7-PLY Switcher (for Master Cartons) -->
+            <!-- Interactive 3-PLY / 5-PLY / 7-PLY / 9-PLY Switcher (for Master Cartons) -->
             <div id="specsPlySwitcher" class="ply-switcher" style="display:none;margin-bottom:16px;"></div>
 
             <!-- Layer Stack Container -->
@@ -698,14 +698,14 @@ const productsData = {
     img: 'assets/images/product_master.png',
     desc: 'Heavy-duty industrial corrugated shippers engineered for safe cargo consolidation, pallet stacking, and long-distance transit under extreme compression.',
     highlights: [
-      { label: 'Construction', val: '3, 5 & 7 PLY Multi-Wall' },
+      { label: 'Construction', val: '3, 5, 7 & 9 PLY Multi-Wall' },
       { label: 'Burst Factor', val: '16 to 35+ BF Range' },
       { label: 'Max Stack Load', val: 'Up to 500+ kg Static' },
       { label: 'Moisture COA', val: '< 9% Moisture (Cobb 60)' }
     ],
     specs: {
-      'Board Construction': '3 PLY (Single Wall), 5 PLY (Double Wall), 7 PLY (Triple Wall)',
-      'Fluting Profiles': 'Narrow Flute (B: 3mm), Broad Flute (C: 4mm), Micro (E: 1.5mm), Multi-Wall (BC / BB)',
+      'Board Construction': '3 PLY (Single Wall), 5 PLY (Double Wall), 7 PLY (Triple Wall), 9 PLY (Quadruple Wall)',
+      'Fluting Profiles': 'Narrow Flute (B: 3mm), Broad Flute (A), Micro (E: 1.5mm), Multi-Wall (AB / BB)',
       'Paper Grammage (GSM)': '100 GSM to 350 GSM Virgin Kraft & High-Performance Semi-Kraft',
       'Burst Factor (BF)': '16 BF, 18 BF, 22 BF, 28 BF, up to 35+ BF Range',
       'Bursting Strength': '8.0 to 22.5 kg/cm² (Pneumatic In-House Lab Verified)',
@@ -721,18 +721,18 @@ const productsData = {
         layers: [
           { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Virgin Kraft (140–200 GSM / 20–28 BF)', strength: 'High tensile exterior skin resisting rough transit abrasion, box bursting, and humidity (Cobb 60 < 50).' },
           { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
-          { type: 'flute', role: 'Fluted Arch Medium', spec: 'Narrow B-Flute (3mm) or Broad C-Flute (4mm)', strength: 'Continuous sinusoidal wave arches act like miniature architectural pillars, bearing vertical stacking compression.' },
+          { type: 'flute', role: 'Fluted Arch Medium', spec: 'Narrow B-Flute (3mm) or Broad A-Flute', strength: 'Continuous sinusoidal wave arches act like miniature architectural pillars, bearing vertical stacking compression.' },
           { type: 'adhesive', text: 'Food-Grade Starch Adhesive (Fused at 160°C Steam Heat)' },
           { type: 'liner', role: 'Inner Contact Liner', spec: 'Semi-Kraft / Kraft (100–180 GSM)', strength: 'Smooth, non-abrasive interior containment wall preventing internal product puncture and wear.' }
         ]
       },
       '5ply': {
-        name: '5 PLY (Double Wall - BC Flute)',
+        name: '5 PLY (Double Wall - AB Flute)',
         capacity: 'Heavy-Duty Pallet Stacking (35–70 kg payloads - 3x Higher Compression)',
         layers: [
           { type: 'liner', role: 'Outer Top Facing Liner', spec: 'Heavy Virgin Kraft (180–300 GSM / 24–35 BF)', strength: 'Primary puncture shield resisting external forklift bumps, corner drops, and ambient humidity.' },
           { type: 'adhesive', text: 'High-Tack Starch Adhesive Line' },
-          { type: 'flute', role: 'Fluting 1 (Broad C-Flute)', spec: '4.0mm Arches (C-Wave Profile)', strength: 'High cushioning and extraordinary vertical stacking endurance for multi-tier warehouse palletizing.' },
+          { type: 'flute', role: 'Fluting 1 (Broad A-Flute)', spec: 'A-Wave Profile (height to specification)', strength: 'High cushioning and extraordinary vertical stacking endurance for multi-tier warehouse palletizing.' },
           { type: 'adhesive', text: 'Center Stabilizing Starch Bond' },
           { type: 'liner', role: 'Center Reinforcing Linerboard', spec: 'High-Density Kraft (150–200 GSM)', strength: 'The structural I-beam spine that anchors both fluting profiles, preventing board deflection and wall buckling.' },
           { type: 'adhesive', text: 'Second Flute Starch Bond' },
@@ -747,7 +747,7 @@ const productsData = {
         layers: [
           { type: 'liner', role: 'Outer Heavy Kraft Liner', spec: 'Extra Heavy Virgin Kraft (250–350 GSM / 35+ BF)', strength: 'Extreme maritime and export durability, high puncture shield for overseas sea freight.' },
           { type: 'adhesive', text: 'High-Pressure Steam Starch Bond' },
-          { type: 'flute', role: 'Fluting 1 (C-Flute)', spec: '4.0mm Wave Arches', strength: 'First-line vertical compression absorption for extreme top stacking.' },
+          { type: 'flute', role: 'Fluting 1 (A-Flute)', spec: 'Wave height to specification', strength: 'First-line vertical compression absorption for extreme top stacking.' },
           { type: 'adhesive', text: 'Interlayer Starch Bond' },
           { type: 'liner', role: 'Center Reinforcing Liner 1', spec: '200 GSM Kraft', strength: 'Structural partition neutralizing shear stresses between flutings.' },
           { type: 'adhesive', text: 'Interlayer Starch Bond' },
@@ -755,10 +755,21 @@ const productsData = {
           { type: 'adhesive', text: 'Interlayer Starch Bond' },
           { type: 'liner', role: 'Center Reinforcing Liner 2', spec: '200 GSM Kraft', strength: 'Second structural bridge locking board geometry against twisting.' },
           { type: 'adhesive', text: 'Interlayer Starch Bond' },
-          { type: 'flute', role: 'Fluting 3 (C/B Flute)', spec: '3.5mm Wave Arches', strength: 'Third tier of continuous architectural arches for extreme payload containment.' },
+          { type: 'flute', role: 'Fluting 3 (A/B Flute)', spec: 'Wave height to specification', strength: 'Third tier of continuous architectural arches for extreme payload containment.' },
           { type: 'adhesive', text: 'Heavy Inner Bond' },
           { type: 'liner', role: 'Bottom Inner Liner', spec: 'Heavy Kraft (200–280 GSM)', strength: 'Heavy-duty containment wall supporting heavy metal castings and engine spares.' }
         ]
+      },
+      '9ply': {
+        name: '9 PLY (Quadruple Wall)',
+        capacity: 'Board grade and load requirements confirmed for each order',
+        layers: Array.from({ length: 17 }, (_, i) => {
+          if (i % 2 === 1) return { type: 'adhesive', text: 'Starch Adhesive Bond' };
+          const sheet = i / 2;
+          return sheet % 2 === 0
+            ? { type: 'liner', role: sheet === 0 ? 'Outer Facing Liner' : sheet === 8 ? 'Inner Contact Liner' : `Reinforcing Liner ${sheet / 2}`, spec: 'Kraft grade specified for your order', strength: 'Linerboard facing and support between fluted layers.' }
+            : { type: 'flute', role: `Fluted Medium ${(sheet + 1) / 2}`, spec: 'Flute profile specified for your order', strength: 'Corrugated medium separating adjacent linerboards.' };
+        })
       }
     },
     mfgSteps: [
@@ -783,7 +794,7 @@ const productsData = {
     ],
     specs: {
       'Board Construction': '3 PLY and 5 PLY Corrugated Board',
-      'Fluting Profiles': 'B-Flute (3mm), E-Flute (1.5mm), or BC Double Wall',
+      'Fluting Profiles': 'B-Flute (3mm), E-Flute (1.5mm), or AB Double Wall',
       'Paper Grammage (GSM)': '140 GSM to 300 GSM Kraft or Bleached White Top Liner',
       'Burst Factor (BF)': '18 BF to 32+ BF',
       'Bursting Strength': '9.0 to 18.0 kg/cm²',
@@ -1321,6 +1332,23 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
     };
   }
 
+  // Nine paper layers: five liners alternating with four fluted media.
+  if (modelKey === 'master' && plyKey === '9ply') {
+    const height = 310;
+    let board = '';
+    for (let sheet = 0; sheet < 9; sheet++) {
+      const y = 28 + sheet * 27;
+      const shape = sheet % 2 === 0
+        ? `<rect x="48" y="${y}" width="488" height="10" rx="2" fill="url(#kraftGrad)" stroke="#8C5E35"/>`
+        : `<path d="M48 ${y + 5} ${Array.from({ length: 24 }, (_, n) => `q5 -14 10 0 q5 14 10 0`).join(' ')}" stroke="#C89666" stroke-width="3" fill="none"/>`;
+      board += `<g class="svg-board-layer" data-layer-idx="${sheet * 2}">${shape}</g>`;
+    }
+    return {
+      caliper: '9 PLY · Thickness to specification',
+      svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">${defs}${cadFrame(height, 'QUADRUPLE-WALL PROFILE · 5 LINERS + 4 FLUTED MEDIA · SCHEMATIC')}${board}</svg>`
+    };
+  }
+
   // Corrugated Board (Single, Double, or Triple Wall)
   const is3Ply = (plyKey === '3ply') || (modelKey === 'printed' && !plyKey) || (modelKey === 'inner') || (layers && layers.length <= 5 && plyKey !== '7ply' && plyKey !== '5ply');
   const is7Ply = (plyKey === '7ply');
@@ -1362,11 +1390,11 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
     const wave2 = buildWave(50, 96, 14, 12, 20);
     const wave3 = buildWave(50, 138, 14, 15, 16);
     return {
-      caliper: '~11.5mm Heavy Export Caliper',
+      caliper: 'Triple Wall · Thickness to specification',
       svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
         ${defs}
-        ${cadFrame(height, 'TRIPLE-WALL EXPORT PROFILE · C-FLUTE (4.0mm) + B-FLUTE (3.0mm) + SUPPORT (3.5mm)')}
-        ${cadDimension(18, 170, '11.5mm')}
+        ${cadFrame(height, 'TRIPLE-WALL EXPORT PROFILE · A-FLUTE + B-FLUTE (3.0mm) + A/B SUPPORT')}
+        ${cadDimension(18, 170, 'Variable')}
 
         <!-- Top Liner -->
         <g class="svg-board-layer" data-layer-idx="0">
@@ -1374,7 +1402,7 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
           <text x="56" y="30" fill="rgba(255,255,255,0.95)" font-size="8" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER HEAVY KRAFT LINER (250–350 GSM / 35+ BF)</text>
         </g>
 
-        <!-- Flute 1: C-Flute (Broad 4.0mm) -->
+        <!-- Flute 1: A-Flute (Broad) -->
         <g class="svg-board-layer" data-layer-idx="2">
           <path d="${wave1.d}" stroke="#C89666" stroke-width="3.4" fill="none" stroke-linecap="round"/>
           ${wave1.glueFillets}
@@ -1398,7 +1426,7 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
           <text x="56" y="120" fill="rgba(255,255,255,0.9)" font-size="7.5" font-family="'JetBrains Mono', monospace" font-weight="600">CENTER REINFORCING LINER 2 (200 GSM STRUCTURAL BRIDGE)</text>
         </g>
 
-        <!-- Flute 3: Support Flute (3.5mm) -->
+        <!-- Flute 3: Support Flute (Schematic) -->
         <g class="svg-board-layer" data-layer-idx="10">
           <path d="${wave3.d}" stroke="#C89666" stroke-width="3.4" fill="none" stroke-linecap="round"/>
           ${wave3.glueFillets}
@@ -1413,16 +1441,16 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
     };
   }
 
-  // Default: 5 PLY (Double Wall - BC Flute)
+  // Default: 5 PLY (Double Wall - AB Flute)
   const height = 190;
   const wave1 = buildWave(50, 58, 18, 20, 12);
   const wave2 = buildWave(50, 108, 16, 12, 20);
   return {
-    caliper: '~7.2mm Board Caliper (BC Flute)',
+    caliper: 'AB Flute · Thickness to specification',
     svg: `<svg viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
       ${defs}
-      ${cadFrame(height, 'DOUBLE-WALL BC COMBINATION PROFILE · C-FLUTE (4.0mm) + B-FLUTE (3.0mm) · 3X COMPRESSION')}
-      ${cadDimension(20, 144, '~7.2mm')}
+      ${cadFrame(height, 'DOUBLE-WALL AB COMBINATION PROFILE · A-FLUTE + B-FLUTE (3.0mm) · 3X COMPRESSION')}
+      ${cadDimension(20, 144, 'Variable')}
 
       <!-- Layer 1: Outer Top Facing Liner -->
       <g class="svg-board-layer" data-layer-idx="0">
@@ -1430,7 +1458,7 @@ function generateBoardCrossSectionSvg(modelKey, plyKey, layers) {
         <text x="56" y="33" fill="rgba(255,255,255,0.95)" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700">OUTER TOP FACING LINER (180–300 GSM / 24–35 BF)</text>
       </g>
 
-      <!-- Fluting 1: Broad C-Flute (4.0mm Wave) -->
+      <!-- Fluting 1: Broad A-Flute (Schematic) -->
       <g class="svg-board-layer" data-layer-idx="2">
         <path d="${wave1.d}" stroke="#C89666" stroke-width="3.5" fill="none" stroke-linecap="round"/>
         ${wave1.glueFillets}

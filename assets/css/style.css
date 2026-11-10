@@ -948,7 +948,7 @@ select.form-control { appearance: none; cursor: pointer; background-image: url("
 }
 .capacity-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .capacity-card {
